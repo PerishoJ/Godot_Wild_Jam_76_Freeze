@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3t2yti6bi0w2"]
+[gd_scene load_steps=10 format=3 uid="uid://d3t2yti6bi0w2"]
 
 [ext_resource type="Script" path="res://characters/player/player_controller.gd" id="1_gkihh"]
+[ext_resource type="Script" path="res://sandbox/camera_controller.gd" id="2_x644o"]
 
 [sub_resource type="Environment" id="Environment_t0l4w"]
 ambient_light_source = 2
@@ -45,9 +46,13 @@ shape = SubResource("BoxShape3D_6x72l")
 script = ExtResource("1_gkihh")
 
 [node name="Camera_rig" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93741, 5.99395)
+script = ExtResource("2_x644o")
 
-[node name="Camera3D" type="Camera3D" parent="Player/Camera_rig"]
+[node name="Gimble" type="Node3D" parent="Player/Camera_rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74495, 7.50513)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Camera_rig/Gimble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888701, 0)
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -60,3 +65,5 @@ shape = SubResource("CapsuleShape3D_2taie")
 [node name="SomeThingForReference" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67748, 1.63265, 0)
 mesh = SubResource("BoxMesh_1twvd")
+
+[connection signal="camera_rotation_event" from="Player/Camera_rig" to="Player" method="_on_camera_rig_camera_rotation_event"]

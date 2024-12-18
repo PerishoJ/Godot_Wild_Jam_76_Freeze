@@ -3,16 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
-func _ready():
-	# Hide the mouse, so we can use it for camera controls
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
-func _unhandled_input(event: InputEvent) -> void:
-	if(event is InputEventMouse):
-		# Do some 3rd person camera stuff here...TODO
-		pass
-		
+var camera_rotation : Vector3 = Vector3( 0 , 0 , 0 )
 		
 func _process(delta: float) -> void:
 	if_the_player_wants_to_quite()
@@ -34,8 +25,12 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("left", "right", "up", "down")
+	# Rotate to match the input
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# Now rotate one more time to match the angle of the camera
+	# TODO How do we rotate this direction vector ( of x and z coords) , by our perpendicular Y angle???
+	# With a basis object, of course, but I can't remember that API tonight, so this is a tomorrow thing
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -44,3 +39,9 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+# Pay attention to which way the camera is pointing so that when the player
+# pressed forward, it goes in a direction that makes sense
+func _on_camera_rig_camera_rotation_event(rotation) -> void:
+	camera_rotation = rotation
