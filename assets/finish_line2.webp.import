@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc42fev5ks8ys"
-path.s3tc="res://.godot/imported/snowflake.png-7a4a6e61e49ca55bcae7892fad7bc4d4.s3tc.ctex"
+uid="uid://oaoec5fb0xyu"
+path.s3tc="res://.godot/imported/finish_line2.webp-bb40a331d7a2a30c8bffec050ef5590b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://snowflake.png"
-dest_files=["res://.godot/imported/snowflake.png-7a4a6e61e49ca55bcae7892fad7bc4d4.s3tc.ctex"]
+source_file="res://assets/finish_line2.webp"
+dest_files=["res://.godot/imported/finish_line2.webp-bb40a331d7a2a30c8bffec050ef5590b.s3tc.ctex"]
 
 [params]
 
