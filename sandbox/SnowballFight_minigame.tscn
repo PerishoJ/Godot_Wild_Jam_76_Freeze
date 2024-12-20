@@ -67,18 +67,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5362, 0.2, -8.45601)
 
 [node name="Character5" parent="." instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8216, 0.2, -30.5803)
+collision_layer = 4
 
 [node name="Character6" parent="." instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2298, 0.2, -30.3294)
+collision_layer = 4
 
 [node name="Character7" parent="." instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4843, 0.2, -30.5803)
+collision_layer = 4
 
 [node name="Character8" parent="." instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076, 0, -30.58)
+collision_layer = 4
 
 [node name="Character9" parent="." instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32785, 0.2, -30.5803)
+collision_layer = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5.65399)

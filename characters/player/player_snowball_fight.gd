@@ -51,7 +51,6 @@ func _unhandled_input(event):
 
 func launch_snowball(p_target) -> void:
 	var snowball = load("res://sandbox/snowball.tscn").instantiate()
-	prints(p_target.position, position)
 	var vector_to_target = (p_target.position - position)
 	var vector_to_target_normalized = (p_target.position - position).normalized()
 	snowball.position = position + vector_to_target_normalized * 3

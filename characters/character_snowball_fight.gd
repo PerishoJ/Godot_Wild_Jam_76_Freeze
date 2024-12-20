@@ -14,8 +14,8 @@ func _physics_process(delta):
 	var at_distance_enemies_array = area.get_overlapping_bodies()
 	if at_distance_enemies_array:
 		pass
-		#target = at_distance_enemies_array[randi() z% at_distance_enemies_array.size()]
-		#launch_snowball(target)
+		target = at_distance_enemies_array[randi() % at_distance_enemies_array.size()]
+		launch_snowball(target)
 			
 	move_and_slide()
 
@@ -23,10 +23,11 @@ func _physics_process(delta):
 
 func launch_snowball(p_target) -> void:
 	var snowball = load("res://sandbox/snowball.tscn").instantiate()
-	var vector_to_target = (p_target.position - position).normalized()
-	snowball.position += vector_to_target * 3
+	var vector_to_target = (p_target.position - position)
+	var vector_to_target_normalized = (p_target.position - position).normalized()
+	snowball.position = position + vector_to_target_normalized * 3
 	level.add_child(snowball)
-	snowball.apply_central_impulse(vector_to_target)
+	snowball.apply_central_impulse(vector_to_target * 1.2 + Vector3(0, 13, 0))
 
 func remove_from_game() -> void:
 	$AnimationPlayer.play("hit")

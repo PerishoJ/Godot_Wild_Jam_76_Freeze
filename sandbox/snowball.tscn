@@ -12,6 +12,7 @@ material = SubResource("StandardMaterial3D_vvk1p")
 radius = 0.1
 
 [node name="Snowball" type="RigidBody3D"]
+collision_layer = 0
 contact_monitor = true
 max_contacts_reported = 1
 constant_force = Vector3(0, -20, 0)
