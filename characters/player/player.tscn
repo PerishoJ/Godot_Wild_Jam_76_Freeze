@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckn1h3p8ep7pp"]
+
+[ext_resource type="Script" path="res://characters/player/player_controller.gd" id="1_1khc3"]
+[ext_resource type="Script" path="res://sandbox/camera_controller.gd" id="2_quvb3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_755kb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2taie"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 2
+script = ExtResource("1_1khc3")
+
+[node name="Camera_rig" type="Node3D" parent="."]
+script = ExtResource("2_quvb3")
+
+[node name="Gimble" type="Node3D" parent="Camera_rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74495, 7.50513)
+
+[node name="Camera3D" type="Camera3D" parent="Camera_rig/Gimble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888701, 0)
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_755kb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2taie")
+
+[connection signal="camera_rotation_event" from="Camera_rig" to="." method="_on_camera_rig_camera_rotation_event"]

@@ -15,6 +15,10 @@ run/main_scene="res://sandbox/Test_Player_Movement_1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://snowflake.png"
 
+[autoload]
+
+Globals="*res://sandbox/globals.gd"
+
 [input]
 
 up={
