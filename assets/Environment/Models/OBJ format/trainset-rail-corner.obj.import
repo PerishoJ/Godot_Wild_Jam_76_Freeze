@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7e3svibykj20"
+path="res://.godot/imported/trainset-rail-corner.obj-06bc15fc860f0b9b765b6c4a50fab2be.mesh"
+
+[deps]
+
+files=["res://.godot/imported/trainset-rail-corner.obj-06bc15fc860f0b9b765b6c4a50fab2be.mesh"]
+
+source_file="res://assets/Environment/Models/OBJ format/trainset-rail-corner.obj"
+dest_files=["res://.godot/imported/trainset-rail-corner.obj-06bc15fc860f0b9b765b6c4a50fab2be.mesh", "res://.godot/imported/trainset-rail-corner.obj-06bc15fc860f0b9b765b6c4a50fab2be.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
