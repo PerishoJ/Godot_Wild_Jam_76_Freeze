@@ -1,13 +1,14 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-var camera_rotation : Vector3 = Vector3( 0 , 0 , 0 )
-    
+@export var SPEED = 5.0
+@export var JUMP_VELOCITY = 4.5
+
+# This is updated every frame to match what angle the camera is at compared to the object.
+var _camera_rotation : Vector3 = Vector3( 0 , 0 , 0 )
+
 func _process(delta: float) -> void:
   if_the_player_wants_to_quite()
-  
 
 func if_the_player_wants_to_quite():
   if Input.is_key_pressed(KEY_ESCAPE):
@@ -29,7 +30,8 @@ func _physics_process(delta: float) -> void:
   # Rotate to match the input
   var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
   # Now rotate one more time to match the angle of the camera
-  direction = direction.rotated(Vector3.UP, camera_rotation.y)
+  print("camera rotation is " + str(_camera_rotation))
+  direction = direction.rotated(Vector3.UP, _camera_rotation.y)
   if direction:
     velocity.x = direction.x * SPEED
     velocity.z = direction.z * SPEED
@@ -40,7 +42,6 @@ func _physics_process(delta: float) -> void:
   move_and_slide()
 
 
-# Pay attention to which way the camera is pointing so that when the player
-# pressed forward, it goes in a direction that makes sense
-func _on_camera_rig_camera_rotation_event(rotation) -> void:
-  camera_rotation = rotation
+func _on_camera_rig_camera_rotation_event(rotation):
+  _camera_rotation=rotation
+  print(" Received " + str(rotation) + " and value is now " + str(_camera_rotation))
