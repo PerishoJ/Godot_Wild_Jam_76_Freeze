@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://beeb83g8b8k36"]
+
+[ext_resource type="Script" path="res://sandbox/camera_controller.gd" id="1_5cx78"]
+[ext_resource type="Script" path="res://characters/player/player_slope_controller.gd" id="1_db7mb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3rohn"]
+friction = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_khrl1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ih8ds"]
+
+[node name="Player" type="RigidBody3D"]
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_3rohn")
+script = ExtResource("1_db7mb")
+
+[node name="Camera_rig" type="Node3D" parent="."]
+script = ExtResource("1_5cx78")
+
+[node name="Gimble" type="Node3D" parent="Camera_rig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74495, 7.50513)
+
+[node name="Camera3D" type="Camera3D" parent="Camera_rig/Gimble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888701, 0)
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_khrl1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ih8ds")
