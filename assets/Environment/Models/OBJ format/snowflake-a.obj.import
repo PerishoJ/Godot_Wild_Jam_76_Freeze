@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://68ncf0nb0w4j"
+path="res://.godot/imported/snowflake-a.obj-90c5dfe82b7d4adf91bc4ec166cf3c44.mesh"
+
+[deps]
+
+files=["res://.godot/imported/snowflake-a.obj-90c5dfe82b7d4adf91bc4ec166cf3c44.mesh"]
+
+source_file="res://assets/Environment/Models/OBJ format/snowflake-a.obj"
+dest_files=["res://.godot/imported/snowflake-a.obj-90c5dfe82b7d4adf91bc4ec166cf3c44.mesh", "res://.godot/imported/snowflake-a.obj-90c5dfe82b7d4adf91bc4ec166cf3c44.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
