@@ -25,7 +25,7 @@ func _process(delta):
 	pass
 
 func freeze() -> void:
-	var minigame_event = 1
+	var minigame_event = randi() % 3
 	var minigame
 	match minigame_event:
 		Globals.MINIGAMES.QUIZZ:
@@ -37,6 +37,10 @@ func freeze() -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Globals.MINIGAMES.SLEDDING:
 			minigame = load("res://sandbox/Slope_mini_game.tscn").instantiate()
+			Globals.scene_holder.remove_child(self)
+			Globals.scene_holder.add_child(minigame)
+		Globals.MINIGAMES.SNOWBALL_FIGHT:
+			minigame = load("res://sandbox/SnowballFight_minigame.tscn").instantiate()
 			Globals.scene_holder.remove_child(self)
 			Globals.scene_holder.add_child(minigame)
 			

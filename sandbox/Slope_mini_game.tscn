@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://sandbox/slope_mini_game.gd" id="1_f5b5f"]
 [ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="1_hyw6t"]
-[ext_resource type="PackedScene" uid="uid://beeb83g8b8k36" path="res://characters/player/player_rigid_body.tscn" id="2_ayhp7"]
+[ext_resource type="PackedScene" uid="uid://beeb83g8b8k36" path="res://characters/player/player_slope.tscn" id="2_ayhp7"]
 [ext_resource type="PackedScene" uid="uid://cjevllo1r4n1m" path="res://sandbox/finish_line.tscn" id="4_erjwi"]
 [ext_resource type="Script" path="res://sandbox/finish_line_for_slope_minigame.gd" id="5_rqxed"]
 

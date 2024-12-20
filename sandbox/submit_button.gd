@@ -3,7 +3,7 @@ extends Button
 var game_level: Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	game_level = get_tree().get_root().get_node("Test_Scene")
+	game_level = get_tree().get_root().get_node("RootNode/Test_Scene")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

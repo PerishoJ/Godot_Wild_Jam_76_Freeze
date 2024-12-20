@@ -1,10 +1,54 @@
-[gd_scene load_steps=10 format=3 uid="uid://uhulkoap3g3v"]
+[gd_scene load_steps=26 format=3 uid="uid://uhulkoap3g3v"]
 
+[ext_resource type="Script" path="res://sandbox/snowball_fight_mini_game.gd" id="1_qfqu5"]
 [ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="2_4dw12"]
 [ext_resource type="PackedScene" uid="uid://bkfvkhrwyjpxg" path="res://characters/player/player_snowball_fight.tscn" id="3_s5r1o"]
 [ext_resource type="PackedScene" uid="uid://c3spm76fuarto" path="res://characters/character_snowball_fight.tscn" id="4_w52jv"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_x2560"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xmak"]
+size = Vector3(60, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l33lv"]
+resource_local_to_scene = true
+albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8u2m0"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_l33lv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onv7h"]
+resource_local_to_scene = true
+albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7e3p1"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_onv7h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx0cv"]
+resource_local_to_scene = true
+albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hi4oc"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_tx0cv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqghc"]
+resource_local_to_scene = true
+albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6rt6m"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_wqghc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qthy6"]
+resource_local_to_scene = true
+albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0tcdg"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_qthy6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0prvl"]
 albedo_color = Color(0.311055, 0.187006, 0.423586, 1)
@@ -13,9 +57,21 @@ albedo_color = Color(0.311055, 0.187006, 0.423586, 1)
 material = SubResource("StandardMaterial3D_0prvl")
 size = Vector2(60, 2)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1d55l"]
+points = PackedVector3Array(30.1277, -0.12766, 1.17021, -30.1277, -0.12766, -1.12766, 30.1277, -0.12766, -1.12766, -30.1277, -0.12766, 1.17021)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ekpv0"]
+points = PackedVector3Array(30.1277, -0.12766, 1.17021, -30.1277, -0.12766, -1.12766, 30.1277, -0.12766, -1.12766, -30.1277, -0.12766, 1.17021)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_acoo4"]
 material = SubResource("StandardMaterial3D_0prvl")
 size = Vector2(50, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cmplc"]
+points = PackedVector3Array(25.1168, -0.116822, 1.21963, -25.1168, -0.116822, -1.11682, 25.1168, -0.116822, -1.11682, -25.1168, -0.116822, 1.21963)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pe2ib"]
+points = PackedVector3Array(25.1168, -0.116822, 1.21963, -25.1168, -0.116822, -1.11682, 25.1168, -0.116822, -1.11682, -25.1168, -0.116822, 1.21963)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3gxt"]
 albedo_color = Color(0.309804, 0.188235, 0.423529, 1)
@@ -25,6 +81,7 @@ material = SubResource("StandardMaterial3D_l3gxt")
 size = Vector2(60, 2)
 
 [node name="SnowBallFightMiniGame" type="Node3D"]
+script = ExtResource("1_qfqu5")
 
 [node name="TimerCount" type="Label" parent="."]
 offset_right = 40.0
@@ -36,6 +93,14 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_x2560")
+
+[node name="MiddleBorder" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.15)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiddleBorder"]
+shape = SubResource("BoxShape3D_8xmak")
 
 [node name="GridMap" parent="." instance=ExtResource("2_4dw12")]
 data = {
@@ -50,57 +115,125 @@ light_energy = 2.72
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 19.9208, 17.0619)
 current = true
 
-[node name="Player" parent="." instance=ExtResource("3_s5r1o")]
+[node name="Player" parent="." groups=["Team1"] instance=ExtResource("3_s5r1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.65368)
 
-[node name="Character" parent="." instance=ExtResource("4_w52jv")]
+[node name="Character" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1946, 0.2, -8.45601)
 
-[node name="Character2" parent="." instance=ExtResource("4_w52jv")]
+[node name="Character2" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52051, 0.2, -8.45601)
 
-[node name="Character3" parent="." instance=ExtResource("4_w52jv")]
+[node name="Character3" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12779, 0.2, -8.45601)
 
-[node name="Character4" parent="." instance=ExtResource("4_w52jv")]
+[node name="Character4" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5362, 0.2, -8.45601)
 
-[node name="Character5" parent="." instance=ExtResource("4_w52jv")]
+[node name="Character5" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8216, 0.2, -30.5803)
 collision_layer = 4
 
-[node name="Character6" parent="." instance=ExtResource("4_w52jv")]
+[node name="CharacterMesh" parent="Character5" index="0"]
+mesh = SubResource("CapsuleMesh_8u2m0")
+
+[node name="Area3D" parent="Character5" index="2"]
+collision_mask = 1
+
+[node name="Character6" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2298, 0.2, -30.3294)
 collision_layer = 4
 
-[node name="Character7" parent="." instance=ExtResource("4_w52jv")]
+[node name="CharacterMesh" parent="Character6" index="0"]
+mesh = SubResource("CapsuleMesh_7e3p1")
+
+[node name="Area3D" parent="Character6" index="2"]
+collision_mask = 1
+
+[node name="Character7" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4843, 0.2, -30.5803)
 collision_layer = 4
 
-[node name="Character8" parent="." instance=ExtResource("4_w52jv")]
+[node name="CharacterMesh" parent="Character7" index="0"]
+mesh = SubResource("CapsuleMesh_hi4oc")
+
+[node name="Area3D" parent="Character7" index="2"]
+collision_mask = 1
+
+[node name="Character8" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076, 0, -30.58)
 collision_layer = 4
 
-[node name="Character9" parent="." instance=ExtResource("4_w52jv")]
+[node name="CharacterMesh" parent="Character8" index="0"]
+mesh = SubResource("CapsuleMesh_6rt6m")
+
+[node name="Area3D" parent="Character8" index="2"]
+collision_mask = 1
+
+[node name="Character9" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32785, 0.2, -30.5803)
 collision_layer = 4
+
+[node name="CharacterMesh" parent="Character9" index="0"]
+mesh = SubResource("CapsuleMesh_0tcdg")
+
+[node name="Area3D" parent="Character9" index="2"]
+collision_mask = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5.65399)
 mesh = SubResource("PlaneMesh_wubef")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_1d55l")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -43.3348)
 mesh = SubResource("PlaneMesh_wubef")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ekpv0")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.5606, 0.2, -18.6511)
 mesh = SubResource("PlaneMesh_acoo4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_cmplc")
+
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.8741, 0.2, -18.6511)
 mesh = SubResource("PlaneMesh_acoo4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pe2ib")
+
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0763626, 0.2, -18.6511)
 mesh = SubResource("PlaneMesh_a8a30")
+
+[editable path="Character5"]
+[editable path="Character6"]
+[editable path="Character7"]
+[editable path="Character8"]
+[editable path="Character9"]

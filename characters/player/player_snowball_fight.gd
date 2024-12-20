@@ -5,7 +5,8 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 4.5
 
 @onready var level = get_parent()
-@onready var raycast = $Camera_rig/Gimble/RayCast3D
+@onready var shapecast = $Camera_rig/Gimble/ShapeCast3D
+@onready var reload_timer = $ReloadTimer
 
 
 func _process(delta: float) -> void:
@@ -43,18 +44,25 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1:
 			if event.pressed:
-				var target = raycast.get_collider()
-				if target:
-					launch_snowball(target)
+				if reload_timer.is_stopped():
+					launch_snowball()
+					reload_timer.start()
 
 
 
-func launch_snowball(p_target) -> void:
+func launch_snowball() -> void:
+	var initial_vector = Vector3(0, 0, -1)
 	var snowball = load("res://sandbox/snowball.tscn").instantiate()
-	var vector_to_target = (p_target.position - position)
-	var vector_to_target_normalized = (p_target.position - position).normalized()
-	snowball.position = position + vector_to_target_normalized * 3
+	#var vector_to_target = (p_target.position - position)
+	#var vector_to_target_normalized = (p_target.position - position).normalized()
+	snowball.position = position + initial_vector * 3
 	level.add_child(snowball)
+	var target = shapecast.get_collider(0)
+	var vector_to_target: Vector3
+	if target:
+		vector_to_target.z = shapecast.get_collider(0).position.z - position.z
+	else:
+		vector_to_target = initial_vector * 20
 	snowball.apply_central_impulse(vector_to_target * 1.2 + Vector3(0, 13, 0))
 
 func remove_from_game() -> void:

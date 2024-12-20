@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkfvkhrwyjpxg"]
+[gd_scene load_steps=10 format=3 uid="uid://bkfvkhrwyjpxg"]
 
 [ext_resource type="Script" path="res://characters/player/player_snowball_fight.gd" id="1_tglo1"]
 [ext_resource type="Script" path="res://sandbox/camera_controller_opposite.gd" id="2_c4c4x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqwb5"]
+size = Vector3(6, 1, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtrft"]
 albedo_color = Color(0.879508, 0.401557, 0, 1)
@@ -61,9 +64,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74495, 7.50513)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888701, 0)
 current = true
 
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Camera_rig/Gimble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74495, -7.50513)
+shape = SubResource("BoxShape3D_kqwb5")
+target_position = Vector3(0, 0, -15)
+collision_mask = 4
+
 [node name="RayCast3D" type="RayCast3D" parent="Camera_rig/Gimble"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74495, -7.50513)
 target_position = Vector3(0, 0, -30)
+collision_mask = 4
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -77,3 +87,7 @@ shape = SubResource("CapsuleShape3D_ih8ds")
 libraries = {
 "": SubResource("AnimationLibrary_570w1")
 }
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
