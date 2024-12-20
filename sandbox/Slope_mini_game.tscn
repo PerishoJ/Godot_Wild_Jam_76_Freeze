@@ -1,0 +1,232 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsa3ijamqyhfo"]
+
+[ext_resource type="Script" path="res://sandbox/slope_mini_game.gd" id="1_f5b5f"]
+[ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="1_hyw6t"]
+[ext_resource type="PackedScene" uid="uid://beeb83g8b8k36" path="res://characters/player/player_rigid_body.tscn" id="2_ayhp7"]
+[ext_resource type="PackedScene" uid="uid://cjevllo1r4n1m" path="res://sandbox/finish_line.tscn" id="4_erjwi"]
+[ext_resource type="Script" path="res://sandbox/finish_line_for_slope_minigame.gd" id="5_rqxed"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_x2560"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vu8bb"]
+size = Vector3(120, 0.1, 300)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_emxd1"]
+size = Vector2(120, 300)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3wwnq"]
+radius = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_tyloc"]
+radius = 3.0
+height = 6.0
+
+[node name="SlopeMiniGame" type="Node3D"]
+script = ExtResource("1_f5b5f")
+
+[node name="TimerCount" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_x2560")
+
+[node name="GridMap" parent="." instance=ExtResource("1_hyw6t")]
+
+[node name="Slope" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 20, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope"]
+shape = SubResource("BoxShape3D_vu8bb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope"]
+mesh = SubResource("PlaneMesh_emxd1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.315367, 107.966)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8667, 0.581657, 97.4597)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D2"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D2"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.87385, 0.40906, 80.8968)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D3"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D3"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27414, 0.617939, 48.6842)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D4"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D4"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6289, 0.515636, 18.2677)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D5"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D5"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3658, 0.40906, 80.8968)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D7"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D7"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3564, 0.190636, -0.317624)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D8"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D8"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9483, -0.494982, 38.6797)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D9"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D9"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6361, -0.0968132, 47.9289)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D6"]
+shape = SubResource("SphereShape3D_3wwnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D6"]
+mesh = SubResource("SphereMesh_tyloc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.87979, 4.76684)
+light_energy = 2.72
+
+[node name="Player" parent="." instance=ExtResource("2_ayhp7")]
+transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 55.5019, 132.278)
+lock_rotation = true
+
+[node name="Gimble" parent="Player/Camera_rig" index="0"]
+transform = Transform3D(1, 0, 0, 0, -2.98023e-08, -1, 0, 1, -2.98023e-08, 0, -3.08283, 0.707476)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 19.9208, 17.0619)
+current = true
+
+[node name="FinishLine" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -47.2471, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine2" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -40.3626, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine3" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.5462, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine4" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -26.6617, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine5" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -19.9635, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine6" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13.079, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine7" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6.26258, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine8" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.621914, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine9" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.16267, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine10" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.0472, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine11" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.8636, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine12" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27.7481, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine13" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.4463, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine14" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 41.3307, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine15" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 48.1472, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine16" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 55.0317, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine17" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -60.4736, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine18" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -53.5891, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[node name="FinishLine19" parent="." instance=ExtResource("4_erjwi")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 61.504, 0.3, -76.3389)
+script = ExtResource("5_rqxed")
+
+[editable path="Player"]

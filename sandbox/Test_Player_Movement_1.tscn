@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3t2yti6bi0w2"]
+[gd_scene load_steps=10 format=3 uid="uid://d3t2yti6bi0w2"]
 
-[ext_resource type="Script" path="res://characters/player/player_controller.gd" id="1_gkihh"]
 [ext_resource type="Script" path="res://sandbox/main_scene.gd" id="1_n86el"]
-[ext_resource type="Script" path="res://sandbox/camera_controller.gd" id="2_x644o"]
+[ext_resource type="PackedScene" uid="uid://ckn1h3p8ep7pp" path="res://characters/player/player.tscn" id="2_n6pal"]
 [ext_resource type="PackedScene" uid="uid://cjevllo1r4n1m" path="res://sandbox/finish_line.tscn" id="4_7kj5v"]
 [ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="5_q2boh"]
 
@@ -19,98 +18,75 @@ material = SubResource("StandardMaterial3D_u438o")
 [sub_resource type="BoxShape3D" id="BoxShape3D_6x72l"]
 size = Vector3(256, 1, 256)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_755kb"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2taie"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_1twvd"]
 
-[node name="Test_Scene" type="Node3D"]
+[node name="RootNode" type="Node3D"]
+
+[node name="Test_Scene" type="Node3D" parent="."]
 script = ExtResource("1_n86el")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Test_Scene"]
 environment = SubResource("Environment_t0l4w")
 
-[node name="TheSunMaybe" type="DirectionalLight3D" parent="."]
+[node name="TheSunMaybe" type="DirectionalLight3D" parent="Test_Scene"]
 transform = Transform3D(1, 0, 0, 0, -0.436048, 0.899923, 0, -0.899923, -0.436048, 0, 9.15694, 0)
 light_energy = 3.0
 light_indirect_energy = 35.0
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="Test_Scene"]
 collision_layer = 2
 collision_mask = 0
 
-[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+[node name="FloorMesh" type="MeshInstance3D" parent="Test_Scene/Floor"]
 transform = Transform3D(256, 0, 0, 0, 1, 0, 0, 0, 256, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_7l1il")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test_Scene/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_6x72l")
 
-[node name="Player" type="CharacterBody3D" parent="."]
-collision_mask = 2
-script = ExtResource("1_gkihh")
+[node name="Player" parent="Test_Scene" instance=ExtResource("2_n6pal")]
 
-[node name="Camera_rig" type="Node3D" parent="Player"]
-script = ExtResource("2_x644o")
-
-[node name="Gimble" type="Node3D" parent="Player/Camera_rig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74495, 7.50513)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Camera_rig/Gimble"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888701, 0)
-
-[node name="PlayerMesh" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_755kb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_2taie")
-
-[node name="SomeThingForReference" type="MeshInstance3D" parent="."]
+[node name="SomeThingForReference" type="MeshInstance3D" parent="Test_Scene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67748, 1.63265, 0)
 mesh = SubResource("BoxMesh_1twvd")
 
-[node name="FinishLine" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13.553, 0.310006, -19.4603)
 
-[node name="FinishLine2" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine2" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6.66069, 0.310006, -19.4603)
 
-[node name="FinishLine3" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine3" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.20515, 0.310006, -19.4603)
 
-[node name="FinishLine4" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine4" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.09747, 0.310006, -19.4603)
 
-[node name="FinishLine5" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine5" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 13.8795, 0.310006, -19.4603)
 
-[node name="FinishLine6" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine6" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.7718, 0.310006, -19.4603)
 
-[node name="FinishLine7" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine7" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27.6376, 0.310006, -19.4603)
 
-[node name="FinishLine8" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine8" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.5299, 0.310006, -19.4603)
 
-[node name="FinishLine9" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine9" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -40.8921, 0.310006, -19.4603)
 
-[node name="FinishLine10" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine10" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.9997, 0.310006, -19.4603)
 
-[node name="FinishLine11" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine11" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -27.1339, 0.310006, -19.4603)
 
-[node name="FinishLine12" parent="." instance=ExtResource("4_7kj5v")]
+[node name="FinishLine12" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -20.2416, 0.310006, -19.4603)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Test_Scene"]
 
-[node name="GridMap" parent="." instance=ExtResource("5_q2boh")]
-
-[connection signal="camera_rotation_event" from="Player/Camera_rig" to="Player" method="_on_camera_rig_camera_rotation_event"]
+[node name="GridMap" parent="Test_Scene" instance=ExtResource("5_q2boh")]
