@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2o62wac5sdt7"
+path="res://.godot/imported/sock-green-cane.obj-071fa27ddf17f42add450f81cdd4c716.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sock-green-cane.obj-071fa27ddf17f42add450f81cdd4c716.mesh"]
+
+source_file="res://assets/Environment/Models/OBJ format/sock-green-cane.obj"
+dest_files=["res://.godot/imported/sock-green-cane.obj-071fa27ddf17f42add450f81cdd4c716.mesh", "res://.godot/imported/sock-green-cane.obj-071fa27ddf17f42add450f81cdd4c716.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

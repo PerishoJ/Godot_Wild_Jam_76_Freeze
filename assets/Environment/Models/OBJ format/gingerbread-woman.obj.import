@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c8knq1bu7sag5"
+path="res://.godot/imported/gingerbread-woman.obj-bbe38266dae6e77d7c2b40259a489eab.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gingerbread-woman.obj-bbe38266dae6e77d7c2b40259a489eab.mesh"]
+
+source_file="res://assets/Environment/Models/OBJ format/gingerbread-woman.obj"
+dest_files=["res://.godot/imported/gingerbread-woman.obj-bbe38266dae6e77d7c2b40259a489eab.mesh", "res://.godot/imported/gingerbread-woman.obj-bbe38266dae6e77d7c2b40259a489eab.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://byeq7nj1gmkis"
+path="res://.godot/imported/cabin-wall-wreath.obj-0547b766fc7ca6c753f34907765080fd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cabin-wall-wreath.obj-0547b766fc7ca6c753f34907765080fd.mesh"]
+
+source_file="res://assets/Environment/Models/OBJ format/cabin-wall-wreath.obj"
+dest_files=["res://.godot/imported/cabin-wall-wreath.obj-0547b766fc7ca6c753f34907765080fd.mesh", "res://.godot/imported/cabin-wall-wreath.obj-0547b766fc7ca6c753f34907765080fd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2qpevngnkwh8"
+path="res://.godot/imported/kwanzaa-kinara-alternative.obj-57da6ff3c06b854e6d784f38e524e42e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kwanzaa-kinara-alternative.obj-57da6ff3c06b854e6d784f38e524e42e.mesh"]
+
+source_file="res://assets/Environment/Models/OBJ format/kwanzaa-kinara-alternative.obj"
+dest_files=["res://.godot/imported/kwanzaa-kinara-alternative.obj-57da6ff3c06b854e6d784f38e524e42e.mesh", "res://.godot/imported/kwanzaa-kinara-alternative.obj-57da6ff3c06b854e6d784f38e524e42e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
