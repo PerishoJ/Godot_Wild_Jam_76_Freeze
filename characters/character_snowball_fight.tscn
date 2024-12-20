@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://characters/character_snowball_fight.gd" id="1_yftic"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4up3"]
+resource_local_to_scene = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_khrl1"]
-resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_k4up3")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ih8ds"]
