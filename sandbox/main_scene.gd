@@ -19,13 +19,12 @@ func _ready():
 	
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+  pass
 
 func freeze() -> void:
-	
-	
 	var minigame_event = 1
 	var minigame
 	match minigame_event:
@@ -43,9 +42,10 @@ func freeze() -> void:
 			
 		
 
+
 func unfreeze() -> void:
-	tree_is_paused = false
-	get_tree().paused = false
-	remove_child(get_node("Minigame"))
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	freeze_timer.start(6)
+  tree_is_paused = false
+  get_tree().paused = false
+  remove_child(get_node("Minigame"))
+  Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+  freeze_timer.start(6)
