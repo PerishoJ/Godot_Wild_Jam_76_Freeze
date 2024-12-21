@@ -545,7 +545,7 @@ transform = Transform3D(-4.68073, 0, -1.75806, -0.435192, 4.84439, 1.15867, 1.70
 transform = Transform3D(0.849331, 0, 0.52786, 0, 1, 0, -0.52786, 0, 0.849331, -4.09261, -0.0173906, 33.4212)
 
 [node name="candy-cane-red" parent="Misc Props" instance=ExtResource("11_jqo34")]
-transform = Transform3D(-3.8241, -2.23722, 2.31755, -2.52482, 4.3157, -3.09453e-06, -2.00037, -1.17028, -4.43046, 3.72326, 7.45639, -10.7204)
+transform = Transform3D(-3.8241, -2.23722, 2.31755, -2.52482, 4.3157, -3.09454e-06, -2.00037, -1.17028, -4.43046, 3.72326, 7.45639, -10.7204)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Misc Props/candy-cane-red"]
 libraries = {
