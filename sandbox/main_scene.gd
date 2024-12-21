@@ -35,7 +35,7 @@ func red_light_green_light() -> void:
   
 
 func launch_minigame() -> void:
-  var minigame_event = 2
+  var minigame_event = randi() % 3
   var minigame
   match minigame_event:
     Globals.MINIGAMES.QUIZZ:
