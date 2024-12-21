@@ -55,7 +55,7 @@ collision_mask = 4
 shape = SubResource("BoxShape3D_1nmi0")
 
 [node name="ReloadTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 0.8
 one_shot = true
 
 [node name="ChooseNewPositionTimer" type="Timer" parent="."]
