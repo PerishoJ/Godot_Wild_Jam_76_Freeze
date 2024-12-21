@@ -29,5 +29,4 @@ func _make_the_camera_follow_mouse_movements(event: InputEvent) -> void:
     rotate_y(motion* rotation_scale);
   # send an event to the player controller so that the "forward"
   # direction can be adjusted
-  # print("Emitting " + str(rotation))
     emit_signal("camera_rotation_event", rotation)

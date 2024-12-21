@@ -6,8 +6,6 @@ var camera_rotation : Vector3 = Vector3( 0 , 0 , 0 )
 
 func _process(delta: float) -> void:
   if_the_player_wants_to_quite()
-  print(position)
-  print(rotation_degrees)
   
 func _physics_process(delta):
   var input_dir := Input.get_vector("left", "right", "up", "down")

@@ -42,7 +42,6 @@ func _physics_process(delta):
           direction = (Vector3(randi_range(-30, 30), 0, 5)).normalized()
         if self in get_tree().get_nodes_in_group("Team2"):
           direction = (Vector3(randi_range(-30, 30), 0, -42)).normalized()
-          print(direction)
           pass
       choose_new_position_timer.start()
   
