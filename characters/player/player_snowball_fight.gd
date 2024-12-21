@@ -51,7 +51,8 @@ func _unhandled_input(event):
 
 
 func launch_snowball() -> void:
-  var initial_vector = Vector3(0, 0, -1) #* $Camera_rig/Gimble/Camera3D.get_global_transform().basis
+  var initial_vector = Vector3(0, 0, -1) * $Camera_rig/Gimble/Camera3D.get_global_transform().basis
+  initial_vector.x = -initial_vector.x
   var snowball = load("res://sandbox/snowball.tscn").instantiate()
   #var vector_to_target = (p_target.position - position)
   #var vector_to_target_normalized = (p_target.position - position).normalized()
@@ -59,11 +60,14 @@ func launch_snowball() -> void:
   level.add_child(snowball)
   var target = shapecast.get_collider(0)
   var vector_to_target: Vector3
+  var vector_to_target_length
   if target:
-    vector_to_target.z = shapecast.get_collider(0).position.z - position.z
+    vector_to_target = shapecast.get_collider(0).position - position
+    vector_to_target_length = vector_to_target.length()
+    vector_to_target = initial_vector * vector_to_target_length
   else:
     vector_to_target = initial_vector * 20
-  snowball.apply_central_impulse(vector_to_target * 1.2 + Vector3(0, 13, 0))
+  snowball.apply_central_impulse(vector_to_target * 1.5 + Vector3(0, 13, 0))
 
 func remove_from_game() -> void:
   $AnimationPlayer.play("hit")
