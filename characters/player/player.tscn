@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/player/player_controller.gd" id="1_1khc3"]
 [ext_resource type="Script" path="res://sandbox/camera_controller.gd" id="2_quvb3"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_755kb"]
+[ext_resource type="PackedScene" uid="uid://bb2lj4tnmoe4x" path="res://characters/player/penguin.tscn" id="3_wumpu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2taie"]
 
@@ -20,9 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74495, 7.50513)
 [node name="Camera3D" type="Camera3D" parent="Camera_rig/Gimble"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888701, 0)
 
-[node name="PlayerMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_755kb")
+[node name="Penguin" parent="." instance=ExtResource("3_wumpu")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
