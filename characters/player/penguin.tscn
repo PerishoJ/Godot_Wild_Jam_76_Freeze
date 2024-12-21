@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bb2lj4tnmoe4x"]
+
+[ext_resource type="PackedScene" uid="uid://c0ktmpw42exjb" path="res://characters/player/Penguin.glb" id="1_jufhd"]
+[ext_resource type="Script" path="res://characters/player/penguin_animations.gd" id="2_etlqn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wkgh8"]
+animation = &"KayKit Animated Character|KayKit Animated Character|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dm6j"]
+animation = &"KayKit Animated Character|KayKit Animated Character|Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aabtd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_phxct"]
+advance_mode = 2
+advance_expression = "penguin_action==\"RUNNING\""
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f2tse"]
+advance_mode = 2
+advance_expression = "penguin_action==\"IDLE\""
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7ijf6"]
+states/Idle/node = SubResource("AnimationNodeAnimation_wkgh8")
+states/Idle/position = Vector2(433, 60)
+states/Run/node = SubResource("AnimationNodeAnimation_8dm6j")
+states/Run/position = Vector2(582, 150)
+states/Start/position = Vector2(166, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_aabtd"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_phxct"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_f2tse")]
+
+[node name="Penguin" instance=ExtResource("1_jufhd")]
+script = ExtResource("2_etlqn")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="0"]
+tree_root = SubResource("AnimationNodeStateMachine_7ijf6")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Skeleton3D" parent="KayKit Animated Character" index="0"]
+bones/0/rotation = Quaternion(-0.707801, 4.28418e-16, 4.28436e-16, 0.706412)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/position = Vector3(0, 0.711598, -8.19688e-15)
+bones/1/rotation = Quaternion(0.0459395, 1.85636e-17, 3.94118e-16, 0.998944)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(0.14, 0.691598, -7.74962e-15)
+bones/2/rotation = Quaternion(-0.685557, -0.173237, 0.685557, -0.173237)
+bones/3/rotation = Quaternion(0.606617, -0.606617, 0.36334, 0.36334)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(-0.14, 0.691598, -1.78298e-14)
+bones/4/rotation = Quaternion(0.704656, -0.286886, -0.646716, -0.0539939)
+bones/5/position = Vector3(9.32982e-10, 0.550922, -4.78333e-09)
+bones/5/rotation = Quaternion(0.300507, -0.376591, 0.679877, 0.55285)
+bones/5/scale = Vector3(1, 1, 1)

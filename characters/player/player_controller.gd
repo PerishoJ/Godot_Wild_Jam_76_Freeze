@@ -1,6 +1,10 @@
 extends CharacterBody3D
 
 
+# Animation Controllers
+@onready var animTree : PenguinAnimCtrl = $Penguin
+
+# Movement controls
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
 var is_in_movement: bool
@@ -31,22 +35,29 @@ func _physics_process(delta: float) -> void:
   # Rotate to match the input
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
   # Now rotate one more time to match the angle of the camera
-	print("camera rotation is " + str(_camera_rotation))
-	direction = direction.rotated(Vector3.UP, _camera_rotation.y)
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
-	if velocity:
-		is_in_movement = true
-	else:
-		is_in_movement = false
-	move_and_slide()
+  direction = direction.rotated(Vector3.UP, _camera_rotation.y)
 
+  if direction:
+    velocity.x = direction.x * SPEED
+    velocity.z = direction.z * SPEED
+  else:
+    velocity.x = move_toward(velocity.x, 0, SPEED)
+    velocity.z = move_toward(velocity.z, 0, SPEED)
+  _emit_movement_signals(direction)
+  move_and_slide()
+
+
+func _emit_movement_signals(direction):
+  if velocity:
+    is_in_movement = true
+  else:
+    is_in_movement = false
+
+  var isRunning = direction and is_on_floor()
+  if(isRunning):
+    animTree.penguin_action="RUNNING"
+  else:
+    animTree.penguin_action="IDLE"
 
 func _on_camera_rig_camera_rotation_event(rotation):
 	_camera_rotation=rotation
-	print(" Received " + str(rotation) + " and value is now " + str(_camera_rotation))
