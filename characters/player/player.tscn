@@ -26,3 +26,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_2taie")
 
 [connection signal="camera_rotation_event" from="Camera_rig" to="." method="_on_camera_rig_camera_rotation_event"]
+[connection signal="camera_rotation_event" from="Camera_rig" to="Penguin" method="_on_camera_rig_camera_rotation_event"]

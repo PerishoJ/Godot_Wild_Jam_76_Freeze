@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-# Make the enum that controls the animation state machine usable here
-const PLAYER_ACTIONS = preload("res://characters/player/penguin_animation_actions.gd").PlayerAction
 
-signal player_action(action)
+# Animation Controllers
+@onready var animTree : PenguinAnimCtrl = $Penguin
 
+# Movement controls
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
 
@@ -34,7 +34,6 @@ func _physics_process(delta: float) -> void:
   # Rotate to match the input
   var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
   # Now rotate one more time to match the angle of the camera
-  print("camera rotation is " + str(_camera_rotation))
   direction = direction.rotated(Vector3.UP, _camera_rotation.y)
   
   if direction:
@@ -49,11 +48,10 @@ func _physics_process(delta: float) -> void:
 
 func _emit_movement_signals(direction):
   var isRunning = direction and is_on_floor()
-  if(isRunning):
-    emit_signal("player_action",PLAYER_ACTIONS.RUNNING)
+  if(isRunning):  
+    animTree.penguin_action="RUNNING"
   else:
-    emit_signal("player_action",PLAYER_ACTIONS.IDLE)
+    animTree.penguin_action="IDLE"
   
 func _on_camera_rig_camera_rotation_event(rotation):
   _camera_rotation=rotation
-  print(" Received " + str(rotation) + " and value is now " + str(_camera_rotation))
