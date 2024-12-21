@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
+var is_in_movement: bool
 
 # This is updated every frame to match what angle the camera is at compared to the object.
 var _camera_rotation : Vector3 = Vector3( 0 , 0 , 0 )
@@ -38,7 +39,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	
+	if velocity:
+		is_in_movement = true
+	else:
+		is_in_movement = false
 	move_and_slide()
 
 

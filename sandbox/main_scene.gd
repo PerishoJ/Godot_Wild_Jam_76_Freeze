@@ -1,5 +1,8 @@
 extends Node3D
 
+var red_light_green_light_timer = Timer.new()
+var is_green_light: bool = true
+@onready var penguin_head = $penguin_head
 var freeze_timer = Timer.new()
 var tree_is_paused: bool
 @onready var player = $Player
@@ -12,10 +15,15 @@ func _ready():
 	freeze_timer.name = "AlternationTimer"
 	freeze_timer.set_one_shot(true)
 	freeze_timer.process_mode = Node.PROCESS_MODE_ALWAYS
-	freeze_timer
 	freeze_timer.connect("timeout", freeze)
 	add_child(freeze_timer)
-	freeze_timer.start(6)
+	freeze_timer.start(100)
+	
+	red_light_green_light_timer.name = "RedLightGreenLightTimer"
+	red_light_green_light_timer.set_one_shot(true)
+	red_light_green_light_timer.connect("timeout", red_light_green_light)
+	add_child(red_light_green_light_timer)
+	red_light_green_light_timer.start(3)
 	
 
 
@@ -23,6 +31,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func red_light_green_light() -> void:
+	is_green_light = not is_green_light
+	if is_green_light:
+		penguin_head.rotate(Vector3(0, 1, 0), PI)
+	elif not is_green_light:
+		penguin_head.rotate(Vector3(0, 1, 0), -PI)
+	red_light_green_light_timer.start()
+	
 
 func freeze() -> void:
 	var minigame_event = randi() % 3

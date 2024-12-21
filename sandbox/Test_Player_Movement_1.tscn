@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3t2yti6bi0w2"]
+[gd_scene load_steps=11 format=3 uid="uid://d3t2yti6bi0w2"]
 
 [ext_resource type="Script" path="res://sandbox/main_scene.gd" id="1_n86el"]
 [ext_resource type="PackedScene" uid="uid://bbrn2yoty57q4" path="res://characters/player/player.tscn" id="2_n6pal"]
 [ext_resource type="PackedScene" uid="uid://cjevllo1r4n1m" path="res://sandbox/finish_line.tscn" id="4_7kj5v"]
 [ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="5_q2boh"]
+[ext_resource type="PackedScene" uid="uid://43vyj1jsf08k" path="res://sandbox/penguin_head.tscn" id="5_u7tlm"]
 
 [sub_resource type="Environment" id="Environment_t0l4w"]
 ambient_light_source = 2
@@ -52,41 +53,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67748, 1.63265, 0)
 mesh = SubResource("BoxMesh_1twvd")
 
 [node name="FinishLine" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13.553, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -13.553, 0.310006, -51.2249)
 
 [node name="FinishLine2" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6.66069, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6.66069, 0.310006, -51.2249)
 
 [node name="FinishLine3" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.20515, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.20515, 0.310006, -51.2249)
 
 [node name="FinishLine4" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.09747, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.09747, 0.310006, -51.2249)
 
 [node name="FinishLine5" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 13.8795, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 13.8795, 0.310006, -51.2249)
 
 [node name="FinishLine6" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.7718, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.7718, 0.310006, -51.2249)
 
 [node name="FinishLine7" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27.6376, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 27.6376, 0.310006, -51.2249)
 
 [node name="FinishLine8" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.5299, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 34.5299, 0.310006, -51.2249)
 
 [node name="FinishLine9" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -40.8921, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -40.8921, 0.310006, -51.2249)
 
 [node name="FinishLine10" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.9997, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.9997, 0.310006, -51.2249)
 
 [node name="FinishLine11" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -27.1339, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -27.1339, 0.310006, -51.2249)
 
 [node name="FinishLine12" parent="Test_Scene" instance=ExtResource("4_7kj5v")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -20.2416, 0.310006, -19.4603)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -20.2416, 0.310006, -51.2249)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Test_Scene"]
 
 [node name="GridMap" parent="Test_Scene" instance=ExtResource("5_q2boh")]
+
+[node name="penguin_head" parent="Test_Scene" instance=ExtResource("5_u7tlm")]
+transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0, 5.1, -61.28)
