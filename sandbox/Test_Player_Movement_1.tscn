@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3t2yti6bi0w2"]
+[gd_scene load_steps=7 format=3 uid="uid://d3t2yti6bi0w2"]
 
 [ext_resource type="Script" path="res://sandbox/main_scene.gd" id="1_n86el"]
 [ext_resource type="PackedScene" uid="uid://bbrn2yoty57q4" path="res://characters/player/player.tscn" id="2_n6pal"]
 [ext_resource type="PackedScene" uid="uid://cjevllo1r4n1m" path="res://sandbox/finish_line.tscn" id="4_7kj5v"]
 [ext_resource type="PackedScene" uid="uid://bsfwddsp1farj" path="res://World.tscn" id="5_psuhd"]
 [ext_resource type="PackedScene" uid="uid://43vyj1jsf08k" path="res://sandbox/penguin_head.tscn" id="5_u7tlm"]
+[ext_resource type="AudioStream" uid="uid://matndd0bqy2w" path="res://assets/music/ChristmasSongs-JingleBellsRock.ogg" id="6_wgw3i"]
 
 [node name="RootNode" type="Node3D"]
 
@@ -23,3 +24,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.083
 
 [node name="World" parent="Test_Scene" instance=ExtResource("5_psuhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5218, -25.6589)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_wgw3i")
+autoplay = true
