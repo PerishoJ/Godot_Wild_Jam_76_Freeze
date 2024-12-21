@@ -13,6 +13,7 @@ config_version=5
 config/name="Game Jam 76 Freeze"
 run/main_scene="res://sandbox/Test_Player_Movement_1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://assets/freezeUnfreezeSplash.webp"
 config/icon="res://snowflake.png"
 
 [autoload]
