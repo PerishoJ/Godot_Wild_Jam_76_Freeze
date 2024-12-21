@@ -2,6 +2,8 @@ extends Node3D
 
 var locked: bool
 
+@onready var player = $Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
   pass # Replace with function body.
@@ -17,6 +19,10 @@ func _process(delta):
       add_child(timer)
       timer.start(1)
       locked = true
+    # end the game if you die
+    if not is_instance_valid(player):
+      Globals.minigame_succeeded = false
+      _handle_scene_change()
   
     if not get_tree().get_nodes_in_group("Team2"):
       Globals.minigame_succeeded = true

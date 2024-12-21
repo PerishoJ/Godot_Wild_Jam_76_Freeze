@@ -71,7 +71,8 @@ func launch_snowball() -> void:
   snowball.apply_central_impulse(vector_to_target * 1.5 + Vector3(0, 13, 0))
 
 func remove_from_game() -> void:
-  $AnimationPlayer.play("hit")
+  #$AnimationPlayer.play("hit")
+  state_machine.travel("die")
   var timer = Timer.new()
   timer.connect("timeout", queue_free)
   add_child(timer)

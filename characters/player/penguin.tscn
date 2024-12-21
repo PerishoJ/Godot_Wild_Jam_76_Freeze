@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bb2lj4tnmoe4x"]
+[gd_scene load_steps=14 format=3 uid="uid://bb2lj4tnmoe4x"]
 
 [ext_resource type="PackedScene" uid="uid://c0ktmpw42exjb" path="res://characters/player/Penguin.glb" id="1_jufhd"]
 [ext_resource type="Script" path="res://characters/player/penguin_animations.gd" id="2_etlqn"]
@@ -32,17 +32,19 @@ advance_expression = "penguin_action==\"IDLE\""
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fsow2"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7ijf6"]
 states/Idle/node = SubResource("AnimationNodeAnimation_wkgh8")
-states/Idle/position = Vector2(433, 60)
+states/Idle/position = Vector2(434, 60)
 states/Run/node = SubResource("AnimationNodeAnimation_8dm6j")
 states/Run/position = Vector2(512, 185)
 states/Start/position = Vector2(166, 100)
 states/attack/node = SubResource("AnimationNodeAnimation_2sp4r")
 states/attack/position = Vector2(770, 135)
-states/defeat/node = SubResource("AnimationNodeAnimation_kk4eo")
-states/defeat/position = Vector2(750, 51)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_aabtd"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_phxct"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_f2tse"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_5tcai"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_4ts7b")]
+states/die/node = SubResource("AnimationNodeAnimation_kk4eo")
+states/die/position = Vector2(750, 51)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_aabtd"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_phxct"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_f2tse"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_5tcai"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_4ts7b"), "Idle", "die", SubResource("AnimationNodeStateMachineTransition_fsow2")]
 
 [node name="Penguin" instance=ExtResource("1_jufhd")]
 script = ExtResource("2_etlqn")
@@ -56,17 +58,9 @@ anim_player = NodePath("../AnimationPlayer")
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
 
 [node name="Skeleton3D" parent="KayKit Animated Character" index="0"]
-bones/0/rotation = Quaternion(-0.7088, 4.42534e-16, 4.42657e-16, 0.705409)
+bones/0/rotation = Quaternion(-0.707107, 6.14049e-15, 1.30425e-14, 0.707107)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/position = Vector3(0, 0.711598, -8.19688e-15)
-bones/1/rotation = Quaternion(0.047971, 2.02268e-17, 4.11981e-16, 0.998849)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/position = Vector3(0.14, 0.691598, -7.74962e-15)
-bones/2/rotation = Quaternion(-0.684898, -0.175826, 0.684898, -0.175826)
+bones/2/rotation = Quaternion(-0.685863, -0.172023, 0.685863, -0.172022)
 bones/3/rotation = Quaternion(0.606617, -0.606617, 0.36334, 0.36334)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/position = Vector3(-0.14, 0.691598, -1.78298e-14)
-bones/4/rotation = Quaternion(0.703994, -0.288381, -0.646658, -0.055339)
-bones/5/position = Vector3(9.32982e-10, 0.550922, -4.78333e-09)
-bones/5/rotation = Quaternion(0.300507, -0.376591, 0.679877, 0.55285)
-bones/5/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.36334, -0.36334, 0.606617, 0.606617)
