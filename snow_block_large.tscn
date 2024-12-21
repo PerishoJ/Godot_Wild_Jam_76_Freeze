@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciedvtx4x5ki4"]
+
+[ext_resource type="PackedScene" uid="uid://7itm54qdbpid" path="res://assets/Environment/platform/Models/FBX format/block-snow-overhang-large-tall.fbx" id="1_d4wjf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cnwa6"]
+size = Vector3(2, 2, 2)
+
+[node name="Snow Block Large" instance=ExtResource("1_d4wjf")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block-snow-overhang-large-tall" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block-snow-overhang-large-tall/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_cnwa6")
