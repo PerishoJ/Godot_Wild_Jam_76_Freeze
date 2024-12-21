@@ -11,6 +11,7 @@ var is_targeted: bool
 @onready var choose_new_position_timer = $ChooseNewPositionTimer
 var new_position: Vector3
 var fire_is_ready: bool = false
+@onready var state_machine = $Penguin/AnimationTree.get("parameters/playback")
 
 func _ready():
   randomize()
@@ -51,6 +52,7 @@ func _physics_process(delta):
 
 
 func launch_snowball(p_target) -> void:
+  state_machine.travel("attack")
   var snowball = load("res://sandbox/snowball.tscn").instantiate()
   if self in get_tree().get_nodes_in_group("Team2"):
     snowball.collision_mask = 1
@@ -62,7 +64,7 @@ func launch_snowball(p_target) -> void:
   snowball.apply_central_impulse(vector_to_target * 1.2 + Vector3(0, 13, 0))
 
 func remove_from_game() -> void:
-  $AnimationPlayer.play("hit")
+  state_machine.travel("die")
   var timer = Timer.new()
   timer.connect("timeout", queue_free)
   add_child(timer)

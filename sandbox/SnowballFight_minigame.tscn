@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://uhulkoap3g3v"]
+[gd_scene load_steps=21 format=3 uid="uid://uhulkoap3g3v"]
 
 [ext_resource type="Script" path="res://sandbox/snowball_fight_mini_game.gd" id="1_qfqu5"]
 [ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="2_4dw12"]
@@ -9,46 +9,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xmak"]
 size = Vector3(60, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l33lv"]
-resource_local_to_scene = true
-albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8u2m0"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_l33lv")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onv7h"]
-resource_local_to_scene = true
-albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_7e3p1"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_onv7h")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx0cv"]
-resource_local_to_scene = true
-albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_hi4oc"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_tx0cv")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqghc"]
-resource_local_to_scene = true
-albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6rt6m"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_wqghc")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qthy6"]
-resource_local_to_scene = true
-albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0tcdg"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_qthy6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0prvl"]
 albedo_color = Color(0.311055, 0.187006, 0.423586, 1)
@@ -93,8 +53,10 @@ sky_material = SubResource("ProceduralSkyMaterial_6hl1r")
 [sub_resource type="Environment" id="Environment_5w35h"]
 background_mode = 2
 sky = SubResource("Sky_lkqxe")
+ambient_light_sky_contribution = 0.7
 fog_enabled = true
-fog_light_color = Color(1, 1, 1, 1)
+fog_light_color = Color(1.23215e-05, 0.91846, 0.91846, 1)
+fog_light_energy = 0.5
 fog_density = 0.005
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n0ehp"]
@@ -136,7 +98,7 @@ data = {
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.87979, 4.76684)
-light_energy = 2.72
+light_indirect_energy = 0.8
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 19.9208, 17.0619)
@@ -158,53 +120,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12779, 0.2, 0.397392)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5362, 0.2, 0.397392)
 
 [node name="Character5" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8216, 0.2, -37.9211)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.8216, 0.2, -37.9211)
 collision_layer = 4
 
-[node name="CharacterMesh" parent="Character5" index="0"]
-mesh = SubResource("CapsuleMesh_8u2m0")
+[node name="CollisionShape3D" parent="Character5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028862, 1, 0)
 
-[node name="Area3D" parent="Character5" index="2"]
+[node name="Area3D" parent="Character5" index="1"]
 collision_mask = 1
 
 [node name="Character6" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2298, 0.2, -37.6702)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.2298, 0.2, -37.6702)
 collision_layer = 4
 
-[node name="CharacterMesh" parent="Character6" index="0"]
-mesh = SubResource("CapsuleMesh_7e3p1")
-
-[node name="Area3D" parent="Character6" index="2"]
+[node name="Area3D" parent="Character6" index="1"]
 collision_mask = 1
 
 [node name="Character7" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4843, 0.2, -37.9211)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.4843, 0.2, -37.9211)
 collision_layer = 4
 
-[node name="CharacterMesh" parent="Character7" index="0"]
-mesh = SubResource("CapsuleMesh_hi4oc")
-
-[node name="Area3D" parent="Character7" index="2"]
+[node name="Area3D" parent="Character7" index="1"]
 collision_mask = 1
 
 [node name="Character8" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076, 0, -37.9208)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.076, 0, -37.9208)
 collision_layer = 4
 
-[node name="CharacterMesh" parent="Character8" index="0"]
-mesh = SubResource("CapsuleMesh_6rt6m")
+[node name="CollisionShape3D" parent="Character8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0288616, 1, 0)
 
-[node name="Area3D" parent="Character8" index="2"]
+[node name="Area3D" parent="Character8" index="1"]
 collision_mask = 1
 
 [node name="Character9" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32785, 0.2, -37.9211)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.32785, 0.2, -37.9211)
 collision_layer = 4
 
-[node name="CharacterMesh" parent="Character9" index="0"]
-mesh = SubResource("CapsuleMesh_0tcdg")
+[node name="CollisionShape3D" parent="Character9" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0288615, 1, 0)
 
-[node name="Area3D" parent="Character9" index="2"]
+[node name="Area3D" parent="Character9" index="1"]
 collision_mask = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
