@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=4 uid="uid://43vyj1jsf08k"]
+
+[ext_resource type="Texture2D" uid="uid://de1qkvwgmb7pu" path="res://assets/penguin-head.png" id="1_h8tw1"]
+[ext_resource type="Script" path="res://sandbox/penguin_head.gd" id="1_j0wng"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uh7rx"]
+resource_name = "Material.002"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.431373, 0.905882, 1)
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lghom"]
+resource_name = "Material"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.431373, 0.905882, 1)
+albedo_texture = ExtResource("1_h8tw1")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m8qsk"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAFAAEABgAHAAUABQAEAAYAAwACAAcABwAGAAMAAgABAAUABQAHAAIA"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8")
+}, {
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 1e-05, 0.02),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2y2hs"]
+resource_name = "Cube"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"attribute_data": PackedByteArray("AABgPwAAgD4AAGA/AAAAPwAAID8AAAA/AAAgPwAAgD4AACA/AABAPwAAID8AAIA/AADAPgAAgD8AAMA+AABAPwAAwD4AAIA+AADAPgAAAD8AAAA+AAAAPwAAAD4AAIA+4vd9PwAg2LlWmdk6AKuTu4D7ATztxoA/27B+PxZNgT8AACA/AAAAPwAAID8AAEA/AADAPgAAQD8AAMA+AAAAPw=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAA"),
+"material": SubResource("StandardMaterial3D_uh7rx"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yM8CtcjvArXIzwK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yO8/3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/////////+//////////7//////////v/////////+/////f/9/vX////9//3+9f////3//f71/////f/9/vX//f////3//v/9/////f/+//3////9//7//f////3//vw==")
+}, {
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 1e-05, 0.02),
+"attribute_data": PackedByteArray("JdcnOwChprtcSX8/ALyFOw9Yfz+qqX4/tcA2OxtDgD8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"material": SubResource("StandardMaterial3D_lghom"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8/38AAN3//7//fwAA0v7/v/9/AADd//+//38AAP//dMA=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_m8qsk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1w003"]
+size = Vector3(50, 2, 50)
+
+[node name="penguin_head" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5.1, 0)
+script = ExtResource("1_j0wng")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_2y2hs")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_1w003")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_Area3D_body_entered"]
