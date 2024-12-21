@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://beeb83g8b8k36"]
+[gd_scene load_steps=7 format=3 uid="uid://beeb83g8b8k36"]
 
 [ext_resource type="Script" path="res://sandbox/camera_controller.gd" id="1_5cx78"]
 [ext_resource type="Script" path="res://characters/player/player_slope_controller.gd" id="1_db7mb"]
+[ext_resource type="PackedScene" uid="uid://bb2lj4tnmoe4x" path="res://characters/player/penguin.tscn" id="3_kjfcm"]
+[ext_resource type="PackedScene" uid="uid://b6up5xavu5188" path="res://characters/player/skis.glb" id="4_n18fk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3rohn"]
 friction = 0.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_khrl1"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ih8ds"]
+margin = 0.2
+radius = 0.22
+height = 1.2
 
 [node name="Player" type="RigidBody3D"]
 collision_mask = 2
@@ -25,10 +28,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74495, 7.50513)
 [node name="Camera3D" type="Camera3D" parent="Camera_rig/Gimble"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888701, 0)
 
-[node name="PlayerMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_khrl1")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.22)
 shape = SubResource("CapsuleShape3D_ih8ds")
+
+[node name="meshes" type="Node3D" parent="."]
+transform = Transform3D(0.999998, 0.00174533, -7.62907e-11, 0, -4.37114e-08, -1, -0.00174533, 0.999998, -4.37113e-08, 0, 0, 0)
+
+[node name="Penguin" parent="meshes" instance=ExtResource("3_kjfcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0389018, 0)
+
+[node name="skis" parent="meshes" instance=ExtResource("4_n18fk")]
+transform = Transform3D(-3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, 0, 0, 0)
