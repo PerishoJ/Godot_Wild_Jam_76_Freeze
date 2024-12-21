@@ -3,11 +3,11 @@ extends CharacterBody3D
 
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
-
+@export var rechargeTime: float = 0.5
 @onready var level = get_parent()
 @onready var shapecast = $Camera_rig/Gimble/ShapeCast3D
 @onready var reload_timer = $ReloadTimer
-
+@onready var state_machine = $Penguin/AnimationTree.get("parameters/playback")
 
 func _process(delta: float) -> void:
   if_the_player_wants_to_quite()
@@ -45,6 +45,7 @@ func _unhandled_input(event):
     if event.button_index == 1:
       if event.pressed:
         if reload_timer.is_stopped():
+          state_machine.travel("attack")
           launch_snowball()
           reload_timer.start()
 

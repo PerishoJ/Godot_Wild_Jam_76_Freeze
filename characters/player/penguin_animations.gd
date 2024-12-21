@@ -2,6 +2,7 @@ extends Node3D
 class_name PenguinAnimCtrl
 
 var penguin_action: String
+var is_throwing: bool
 var target_rotation
 # Called when the node enters the scene tree for the first time.
 func _ready():

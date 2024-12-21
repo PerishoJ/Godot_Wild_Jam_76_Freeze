@@ -1,48 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkfvkhrwyjpxg"]
+[gd_scene load_steps=9 format=3 uid="uid://bkfvkhrwyjpxg"]
 
 [ext_resource type="Script" path="res://characters/player/player_snowball_fight.gd" id="1_tglo1"]
+[ext_resource type="PackedScene" uid="uid://bb2lj4tnmoe4x" path="res://characters/player/penguin.tscn" id="2_03bdp"]
 [ext_resource type="Script" path="res://sandbox/camera_controller_opposite.gd" id="2_c4c4x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqwb5"]
 size = Vector3(6, 1, 30)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtrft"]
-albedo_color = Color(0.879508, 0.401557, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_khrl1"]
-material = SubResource("StandardMaterial3D_qtrft")
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ih8ds"]
 
 [sub_resource type="Animation" id="Animation_agsll"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerMesh:mesh:material:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.879508, 0.401557, 0, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_ghxs8"]
 resource_name = "hit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerMesh:mesh:material:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Color(0.879508, 0.401557, 0, 1), Color(0.878431, 0, 0, 1), Color(0.879508, 0.401557, 0, 1), Color(0.878431, 0, 0, 1), Color(0.879508, 0.401557, 0, 1), Color(0.878431, 0, 0, 1), Color(0.879508, 0.401557, 0, 1), Color(0.878431, 0, 0, 1), Color(0.879508, 0.401557, 0, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_570w1"]
 _data = {
@@ -53,6 +24,8 @@ _data = {
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 2
 script = ExtResource("1_tglo1")
+
+[node name="Penguin" parent="." instance=ExtResource("2_03bdp")]
 
 [node name="Camera_rig" type="Node3D" parent="."]
 script = ExtResource("2_c4c4x")
@@ -74,10 +47,6 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74495, -7.50513)
 target_position = Vector3(0, 0, -30)
 collision_mask = 4
-
-[node name="PlayerMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_khrl1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -10,7 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
   if not locked:
-    if not get_tree().get_nodes_in_group("Team1"):
+    if not get_tree().get_nodes_in_group("Team1") :
       Globals.minigame_succeeded = false
       var timer = Timer.new()
       timer.connect("timeout", _handle_scene_change)
@@ -23,7 +23,7 @@ func _process(delta):
       var timer = Timer.new()
       timer.connect("timeout", _handle_scene_change)
       add_child(timer)
-      timer.start(1)
+      timer.start(1.5)
       locked = true
 
 
