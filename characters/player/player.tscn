@@ -10,8 +10,10 @@ radius = 0.12
 height = 0.5
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_1khc3")
+SPEED = 1.0
+JUMP_VELOCITY = 3.0
 
 [node name="Camera_rig" type="Node3D" parent="."]
 script = ExtResource("2_quvb3")

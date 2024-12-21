@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ellixscfsles" path="res://assets/Environment/Models/FBX format/gingerbread-man.fbx" id="15_ef8x3"]
 [ext_resource type="PackedScene" uid="uid://cb0f1ymnun3ln" path="res://assets/Environment/Models/FBX format/snowman-hat.fbx" id="16_bvpe1"]
 [ext_resource type="PackedScene" uid="uid://oomoah0o6up0" path="res://assets/Environment/Models/FBX format/reindeer.fbx" id="17_4gby3"]
-[ext_resource type="PackedScene" uid="uid://c7nfe6b2erhqt" path="res://delete_during_production.tscn" id="18_dijqc"]
+[ext_resource type="PackedScene" uid="uid://bbrn2yoty57q4" path="res://characters/player/player.tscn" id="18_u0y07"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ppsri"]
 sky_top_color = Color(0.145138, 0.440275, 0.816021, 1)
@@ -545,9 +545,7 @@ transform = Transform3D(-4.68073, 0, -1.75806, -0.435192, 4.84439, 1.15867, 1.70
 transform = Transform3D(0.849331, 0, 0.52786, 0, 1, 0, -0.52786, 0, 0.849331, -4.09261, -0.0173906, 33.4212)
 
 [node name="candy-cane-red" parent="Misc Props" instance=ExtResource("11_jqo34")]
-
 transform = Transform3D(-3.8241, -2.23722, 2.31755, -2.52482, 4.3157, -3.09454e-06, -2.00037, -1.17028, -4.43046, 3.72326, 7.45639, -10.7204)
-
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Misc Props/candy-cane-red"]
 libraries = {
@@ -675,5 +673,5 @@ transform = Transform3D(0.716947, 0, 0.697128, 0, 1, 0, -0.697128, 0, 0.716947, 
 [node name="reindeer2" parent="Audeince" instance=ExtResource("17_4gby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4737, 1.5, -23.1063)
 
-[node name="Delete during production" parent="." instance=ExtResource("18_dijqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.831615, 3.64395, 24.1463)
+[node name="Player" parent="." instance=ExtResource("18_u0y07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6422, 0)
