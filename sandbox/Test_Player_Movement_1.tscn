@@ -13,7 +13,7 @@
 script = ExtResource("1_n86el")
 
 [node name="Player" parent="Test_Scene" instance=ExtResource("2_n6pal")]
-SPEED = 8.0
+SPEED = 2.0
 
 [node name="penguin_head" parent="Test_Scene" instance=ExtResource("5_u7tlm")]
 transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 0, 5.1, -61.28)

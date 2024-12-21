@@ -5,7 +5,7 @@ var is_green_light: bool = true
 @onready var penguin_head = $penguin_head
 var tree_is_paused: bool
 @onready var player = $Player
-
+w
 # Called when the node enters the scene tree for the first time.
 func _ready():
   Globals.scene_holder = get_parent()
