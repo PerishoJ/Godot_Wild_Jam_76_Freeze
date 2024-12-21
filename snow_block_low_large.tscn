@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://sdchu74bkp0r"]
+
+[ext_resource type="PackedScene" uid="uid://br8440qvnedyu" path="res://assets/Environment/platform/Models/FBX format/block-snow-low-large.fbx" id="1_rxhgv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7paap"]
+size = Vector3(2, 0.5, 2)
+
+[node name="Snow Block Low Large" instance=ExtResource("1_rxhgv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block-snow-low-large" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block-snow-low-large/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_7paap")

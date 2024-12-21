@@ -12,17 +12,17 @@ func _process(delta: float) -> void:
 
 func if_the_player_wants_to_quite():
   if Input.is_key_pressed(KEY_ESCAPE):
-    get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-    get_tree().quit()
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	get_tree().quit()
 
 func _physics_process(delta: float) -> void:
   # Add the gravity.
   if not is_on_floor():
-    velocity += get_gravity() * delta
+	velocity += get_gravity() * delta
 
   # Handle jump.
   if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-    velocity.y = JUMP_VELOCITY
+	velocity.y = JUMP_VELOCITY
 
   # Get the input direction and handle the movement/deceleration.
   # As good practice, you should replace UI actions with custom gameplay actions.
@@ -33,11 +33,11 @@ func _physics_process(delta: float) -> void:
   print("camera rotation is " + str(_camera_rotation))
   direction = direction.rotated(Vector3.UP, _camera_rotation.y)
   if direction:
-    velocity.x = direction.x * SPEED
-    velocity.z = direction.z * SPEED
+	velocity.x = direction.x * SPEED
+	velocity.z = direction.z * SPEED
   else:
-    velocity.x = move_toward(velocity.x, 0, SPEED)
-    velocity.z = move_toward(velocity.z, 0, SPEED)
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+	velocity.z = move_toward(velocity.z, 0, SPEED)
 
   move_and_slide()
 

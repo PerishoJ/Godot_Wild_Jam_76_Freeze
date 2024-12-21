@@ -10,6 +10,8 @@
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 2
 script = ExtResource("1_1khc3")
+SPEED = null
+JUMP_VELOCITY = null
 
 [node name="Camera_rig" type="Node3D" parent="."]
 script = ExtResource("2_quvb3")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7nfe6b2erhqt"]
+
+[ext_resource type="Script" path="res://delete_during_production.gd" id="1_2rmcb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m8rgt"]
+radius = 0.1
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpabr"]
+radius = 0.1
+height = 0.4
+
+[node name="Delete during production" type="CharacterBody3D"]
+script = ExtResource("1_2rmcb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_m8rgt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_kpabr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.970296, 0.241922, 0, -0.241922, 0.970296, 0, 0.88801, 2.08728)
