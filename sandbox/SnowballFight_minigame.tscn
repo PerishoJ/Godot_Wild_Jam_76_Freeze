@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://uhulkoap3g3v"]
+[gd_scene load_steps=31 format=3 uid="uid://uhulkoap3g3v"]
 
 [ext_resource type="Script" path="res://sandbox/snowball_fight_mini_game.gd" id="1_qfqu5"]
 [ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="2_4dw12"]
@@ -79,6 +79,31 @@ albedo_color = Color(0.309804, 0.188235, 0.423529, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_a8a30"]
 material = SubResource("StandardMaterial3D_l3gxt")
 size = Vector2(60, 2)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6hl1r"]
+sky_top_color = Color(0, 0.463041, 0.770025, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_curve = 0.261165
+
+[sub_resource type="Sky" id="Sky_lkqxe"]
+sky_material = SubResource("ProceduralSkyMaterial_6hl1r")
+
+[sub_resource type="Environment" id="Environment_5w35h"]
+background_mode = 2
+sky = SubResource("Sky_lkqxe")
+fog_enabled = true
+fog_light_color = Color(1, 1, 1, 1)
+fog_density = 0.005
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n0ehp"]
+emission_shape = 3
+emission_box_extents = Vector3(40, 10, 40)
+turbulence_noise_strength = 0.5
+turbulence_noise_scale = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_si5m2"]
+radius = 0.2
+height = 0.3
 
 [node name="SnowBallFightMiniGame" type="Node3D"]
 script = ExtResource("1_qfqu5")
@@ -231,6 +256,17 @@ shape = SubResource("ConvexPolygonShape3D_pe2ib")
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0763626, 0.2, -18.6511)
 mesh = SubResource("PlaneMesh_a8a30")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5w35h")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.999997, 0.00240642, 0.000289557, 0.000909138, -0.261671, -0.965156, -0.00224681, 0.965154, -0.261673, -0.0128279, 1.28405, -10.5781)
+amount = 350
+lifetime = 2.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_n0ehp")
+draw_pass_1 = SubResource("SphereMesh_si5m2")
 
 [editable path="Character5"]
 [editable path="Character6"]
