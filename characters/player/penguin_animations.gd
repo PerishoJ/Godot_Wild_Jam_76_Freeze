@@ -2,7 +2,7 @@ extends Node3D
 class_name PenguinAnimCtrl
 
 var penguin_action: String
-
+var target_rotation
 # Called when the node enters the scene tree for the first time.
 func _ready():
   pass # Replace with function body.
@@ -15,5 +15,8 @@ func _process(delta):
 
 func _on_camera_rig_camera_rotation_event(rotation):
   # I really have no idea why it is rotated
-  transform.basis = Basis(Vector3.UP,1.0) * Basis(Vector3.UP,rotation.y + 90)
-  pass 
+  target_rotation=rotation
+  
+func _physics_process(delta):
+  if target_rotation:
+    rotation = target_rotation
