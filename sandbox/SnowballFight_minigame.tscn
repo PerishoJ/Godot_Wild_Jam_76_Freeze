@@ -116,22 +116,22 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 current = true
 
 [node name="Player" parent="." groups=["Team1"] instance=ExtResource("3_s5r1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.65368)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.19972)
 
 [node name="Character" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1946, 0.2, -8.45601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1946, 0.2, 0.397392)
 
 [node name="Character2" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52051, 0.2, -8.45601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52051, 0.2, 0.397392)
 
 [node name="Character3" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12779, 0.2, -8.45601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12779, 0.2, 0.397392)
 
 [node name="Character4" parent="." groups=["Team1"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5362, 0.2, -8.45601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5362, 0.2, 0.397392)
 
 [node name="Character5" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8216, 0.2, -30.5803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8216, 0.2, -37.9211)
 collision_layer = 4
 
 [node name="CharacterMesh" parent="Character5" index="0"]
@@ -141,7 +141,7 @@ mesh = SubResource("CapsuleMesh_8u2m0")
 collision_mask = 1
 
 [node name="Character6" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2298, 0.2, -30.3294)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2298, 0.2, -37.6702)
 collision_layer = 4
 
 [node name="CharacterMesh" parent="Character6" index="0"]
@@ -151,7 +151,7 @@ mesh = SubResource("CapsuleMesh_7e3p1")
 collision_mask = 1
 
 [node name="Character7" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4843, 0.2, -30.5803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4843, 0.2, -37.9211)
 collision_layer = 4
 
 [node name="CharacterMesh" parent="Character7" index="0"]
@@ -161,7 +161,7 @@ mesh = SubResource("CapsuleMesh_hi4oc")
 collision_mask = 1
 
 [node name="Character8" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076, 0, -30.58)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076, 0, -37.9208)
 collision_layer = 4
 
 [node name="CharacterMesh" parent="Character8" index="0"]
@@ -171,7 +171,7 @@ mesh = SubResource("CapsuleMesh_6rt6m")
 collision_mask = 1
 
 [node name="Character9" parent="." groups=["Team2"] instance=ExtResource("4_w52jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32785, 0.2, -30.5803)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32785, 0.2, -37.9211)
 collision_layer = 4
 
 [node name="CharacterMesh" parent="Character9" index="0"]

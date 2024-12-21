@@ -10,12 +10,19 @@ var is_targeted: bool
 @onready var reload_timer = $ReloadTimer
 @onready var choose_new_position_timer = $ChooseNewPositionTimer
 var new_position: Vector3
+var fire_is_ready: bool = false
 
 func _ready():
   randomize()
+  var start_reload_timer = Timer.new()
+  start_reload_timer.set_one_shot(true)
+  start_reload_timer.connect("timeout", _make_fire_ready)
+  add_child(start_reload_timer)
+  start_reload_timer.start(randf() * 2)
+  
 
 func _physics_process(delta):
-  if reload_timer.is_stopped():
+  if reload_timer.is_stopped() and fire_is_ready:
     if choose_new_position_timer.is_stopped():
       direction = (Vector3(randi_range(-30, 30), 0, -19.15) - position).normalized()
       choose_new_position_timer.start()
@@ -60,3 +67,6 @@ func remove_from_game() -> void:
   timer.connect("timeout", queue_free)
   add_child(timer)
   timer.start(1.5)
+
+func _make_fire_ready() -> void:
+  fire_is_ready = true

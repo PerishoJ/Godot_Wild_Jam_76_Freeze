@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cixoxt4wwpjtr"]
 
-[ext_resource type="Script" path="res://sandbox/minigame.gd" id="1_w8qh6"]
-[ext_resource type="Script" path="res://sandbox/submit_button.gd" id="2_ixjho"]
+[ext_resource type="Script" path="res://sandbox/quizz_minigame.gd" id="1_efjcp"]
+[ext_resource type="Script" path="res://sandbox/submit_button.gd" id="2_x0k2h"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_otw8l"]
 
@@ -19,9 +19,9 @@ size = Vector3(2, 0.2, 2)
 
 [sub_resource type="QuadMesh" id="QuadMesh_76run"]
 
-[node name="Minigame" type="Node3D"]
+[node name="QuizzMinigame" type="Node3D"]
 process_mode = 3
-script = ExtResource("1_w8qh6")
+script = ExtResource("1_efjcp")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
@@ -45,11 +45,20 @@ text = "Solve: 8+3"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="SubViewport/PopupPanel/VBoxContainer"]
+[node name="Button1" type="Button" parent="SubViewport/PopupPanel/VBoxContainer"]
 layout_mode = 2
 action_mode = 0
-text = "submit"
-script = ExtResource("2_ixjho")
+script = ExtResource("2_x0k2h")
+
+[node name="Button2" type="Button" parent="SubViewport/PopupPanel/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_x0k2h")
+
+[node name="Button3" type="Button" parent="SubViewport/PopupPanel/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_x0k2h")
 
 [node name="Result" type="Label" parent="SubViewport/PopupPanel/VBoxContainer"]
 visible = false
@@ -80,4 +89,6 @@ mesh = SubResource("QuadMesh_76run")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
 light_energy = 3.925
 
-[connection signal="button_down" from="SubViewport/PopupPanel/VBoxContainer/Button" to="SubViewport/PopupPanel/VBoxContainer/Button" method="_on_button_down"]
+[connection signal="button_down" from="SubViewport/PopupPanel/VBoxContainer/Button1" to="SubViewport/PopupPanel/VBoxContainer/Button1" method="_on_button_down"]
+[connection signal="button_down" from="SubViewport/PopupPanel/VBoxContainer/Button2" to="SubViewport/PopupPanel/VBoxContainer/Button2" method="_on_button_down"]
+[connection signal="button_down" from="SubViewport/PopupPanel/VBoxContainer/Button3" to="SubViewport/PopupPanel/VBoxContainer/Button3" method="_on_button_down"]

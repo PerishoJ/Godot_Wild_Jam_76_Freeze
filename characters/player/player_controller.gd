@@ -35,7 +35,14 @@ func _physics_process(delta: float) -> void:
   # Rotate to match the input
   var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
   # Now rotate one more time to match the angle of the camera
+  
+  if velocity:
+    is_in_movement = true
+  else:
+    is_in_movement = false
+  move_and_slide()
   direction = direction.rotated(Vector3.UP, _camera_rotation.y )
+
 
   if direction:
     velocity.x = direction.x * SPEED
