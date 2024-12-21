@@ -12,4 +12,5 @@ func _process(delta):
 
 func _on_Area3D_body_entered(p_body) -> void:
   if p_body.name == "Player":
-    get_tree().quit()
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+    get_tree().change_scene_to_file("res://Winner.tscn")
