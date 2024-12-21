@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bsfwddsp1farj"]
+[gd_scene load_steps=28 format=3 uid="uid://bsfwddsp1farj"]
 
 [ext_resource type="MeshLibrary" uid="uid://b2lh3rw104s0g" path="res://assets/mesh_library/Snow Blocks.tres" id="1_a1lx8"]
 [ext_resource type="PackedScene" uid="uid://y253bl0i6wex" path="res://assets/Environment/platform/Models/FBX format/arrow.fbx" id="2_0rjsi"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://ellixscfsles" path="res://assets/Environment/Models/FBX format/gingerbread-man.fbx" id="15_ef8x3"]
 [ext_resource type="PackedScene" uid="uid://cb0f1ymnun3ln" path="res://assets/Environment/Models/FBX format/snowman-hat.fbx" id="16_bvpe1"]
 [ext_resource type="PackedScene" uid="uid://oomoah0o6up0" path="res://assets/Environment/Models/FBX format/reindeer.fbx" id="17_4gby3"]
-[ext_resource type="PackedScene" uid="uid://bbrn2yoty57q4" path="res://characters/player/player.tscn" id="18_u0y07"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ppsri"]
 sky_top_color = Color(0.145138, 0.440275, 0.816021, 1)
@@ -672,6 +671,3 @@ transform = Transform3D(0.716947, 0, 0.697128, 0, 1, 0, -0.697128, 0, 0.716947, 
 
 [node name="reindeer2" parent="Audeince" instance=ExtResource("17_4gby3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4737, 1.5, -23.1063)
-
-[node name="Player" parent="." instance=ExtResource("18_u0y07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6422, 0)
