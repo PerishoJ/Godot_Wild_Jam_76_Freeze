@@ -19,6 +19,10 @@ config/icon="res://snowflake.png"
 
 Globals="*res://sandbox/globals.gd"
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 up={

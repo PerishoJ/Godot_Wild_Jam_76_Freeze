@@ -24,11 +24,10 @@ func _unhandled_input(event: InputEvent) -> void:
 # Rotate the camera when you move the mouse
 func _make_the_camera_follow_mouse_movements(event: InputEvent) -> void:
   if(event is InputEventMouseMotion):
-    # orbit the camera left and right around the basic location
+  # orbit the camera left and right around the basic location
     var motion = (event as InputEventMouseMotion).relative.x
     rotate_y(motion* rotation_scale);
-    # send an event to the player controller so that the "forward"
-    # direction can be adjusted
-    # print("Emitting " + str(rotation))
+  # send an event to the player controller so that the "forward"
+  # direction can be adjusted
+  # print("Emitting " + str(rotation))
     emit_signal("camera_rotation_event", rotation)
-

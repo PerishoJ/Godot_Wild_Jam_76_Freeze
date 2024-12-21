@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://cixoxt4wwpjtr"]
+
+[ext_resource type="Script" path="res://sandbox/quizz_minigame.gd" id="1_efjcp"]
+[ext_resource type="Script" path="res://sandbox/submit_button.gd" id="2_x0k2h"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_otw8l"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wg3nd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y68oq"]
+resource_local_to_scene = true
+albedo_color = Color(0.856449, 0.00044107, 0.826897, 1)
+albedo_texture = SubResource("ViewportTexture_wg3nd")
+albedo_texture_force_srgb = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qdrc"]
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_76run"]
+
+[node name="QuizzMinigame" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_efjcp")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="PopupPanel" type="PopupPanel" parent="SubViewport"]
+initial_position = 3
+size = Vector2i(200, 200)
+current_screen = 0
+visible = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 196.0
+offset_bottom = 196.0
+
+[node name="Question" type="Label" parent="SubViewport/PopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Solve: 8+3"
+
+[node name="Answer" type="TextEdit" parent="SubViewport/PopupPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button1" type="Button" parent="SubViewport/PopupPanel/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_x0k2h")
+
+[node name="Button2" type="Button" parent="SubViewport/PopupPanel/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_x0k2h")
+
+[node name="Button3" type="Button" parent="SubViewport/PopupPanel/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+script = ExtResource("2_x0k2h")
+
+[node name="Result" type="Label" parent="SubViewport/PopupPanel/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Solve: 8+3"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 3)
+
+[node name="GUI" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.5, 0.99)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GUI"]
+mesh = SubResource("PlaneMesh_otw8l")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_y68oq")
+
+[node name="Area3D" type="Area3D" parent="GUI"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GUI/Area3D"]
+shape = SubResource("BoxShape3D_6qdrc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.73601)
+mesh = SubResource("QuadMesh_76run")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4)
+light_energy = 3.925
+
+[connection signal="button_down" from="SubViewport/PopupPanel/VBoxContainer/Button1" to="SubViewport/PopupPanel/VBoxContainer/Button1" method="_on_button_down"]
+[connection signal="button_down" from="SubViewport/PopupPanel/VBoxContainer/Button2" to="SubViewport/PopupPanel/VBoxContainer/Button2" method="_on_button_down"]
+[connection signal="button_down" from="SubViewport/PopupPanel/VBoxContainer/Button3" to="SubViewport/PopupPanel/VBoxContainer/Button3" method="_on_button_down"]
