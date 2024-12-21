@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name MainPlayerController
 
 # Animation Controllers
 @onready var animTree : PenguinAnimCtrl = $Penguin
