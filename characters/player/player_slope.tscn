@@ -9,7 +9,7 @@
 friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ih8ds"]
-margin = 0.2
+margin = 1.0
 radius = 0.22
 height = 1.2
 

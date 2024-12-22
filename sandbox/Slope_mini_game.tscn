@@ -14,7 +14,8 @@ outline_color = Color(0.93408, 0.93408, 0.93408, 1)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_x2560"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vu8bb"]
-size = Vector3(120, 0.1, 1000)
+margin = 0.2
+size = Vector3(120, 20, 1000)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_emxd1"]
 size = Vector2(120, 1000)
@@ -110,7 +111,7 @@ sky = SubResource("Sky_mlr0y")
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(1, 1, 1, 1)
-fog_density = 1.0
+fog_density = 0.8
 adjustment_enabled = true
 
 [node name="SlopeMiniGame" type="Node3D"]
@@ -141,6 +142,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 shape = SubResource("BoxShape3D_vu8bb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slope"]
