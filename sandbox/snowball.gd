@@ -14,7 +14,8 @@ func _process(delta):
 
 
 func _on_Snowball_body_entered(body):
-  body.remove_from_game()
+  if body.name != "GridMap":
+    body.remove_from_game()
 
 
 func _on_timer_timeout():

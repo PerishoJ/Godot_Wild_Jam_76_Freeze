@@ -35,9 +35,9 @@ func _physics_process(delta):
   
   elif not reload_timer.is_stopped():
     if choose_new_position_timer.is_stopped():
-      if reload_timer.wait_time < 2:
+      if reload_timer.wait_time < 1:
         direction = (Vector3(randi_range(-30, 30), 0, -19.15) - position).normalized()
-      elif reload_timer.wait_time >= 2:
+      elif reload_timer.wait_time >= 1:
         if self in get_tree().get_nodes_in_group("Team1"):
           direction = (Vector3(randi_range(-30, 30), 0, 5)).normalized()
         if self in get_tree().get_nodes_in_group("Team2"):
@@ -63,11 +63,11 @@ func launch_snowball(p_target) -> void:
   snowball.apply_central_impulse(vector_to_target * 1.2 + Vector3(0, 13, 0))
 
 func remove_from_game() -> void:
-  state_machine.travel("die")
+  #state_machine.travel("die")
   var timer = Timer.new()
   timer.connect("timeout", queue_free)
   add_child(timer)
-  timer.start(1.5)
+  timer.start(0.3)
 
 func _make_fire_ready() -> void:
   fire_is_ready = true

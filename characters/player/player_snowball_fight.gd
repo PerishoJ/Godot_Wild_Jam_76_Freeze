@@ -67,8 +67,8 @@ func launch_snowball() -> void:
     vector_to_target_length = vector_to_target.length()
     vector_to_target = initial_vector * vector_to_target_length
   else:
-    vector_to_target = initial_vector * 20
-  snowball.apply_central_impulse(vector_to_target * 1.5 + Vector3(0, 13, 0))
+    vector_to_target = initial_vector * 35
+  snowball.apply_central_impulse(vector_to_target * 1.2 + Vector3(0, 13, 0))
 
 func remove_from_game() -> void:
   #$AnimationPlayer.play("hit")

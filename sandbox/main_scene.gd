@@ -10,31 +10,56 @@ var tree_is_paused: bool
 func _ready():
   Globals.scene_holder = get_parent()
   Globals.main_world_level = self
+  
+  var timer = Timer.new()
+  timer.set_one_shot(true)
+  timer.connect("timeout", _set_traffic_lights_position)
+  add_child(timer)
+  timer.start(0.05)
+  
   randomize()
   
   red_light_green_light_timer.name = "RedLightGreenLightTimer"
+  red_light_green_light_timer.wait_time = 3
   red_light_green_light_timer.set_one_shot(true)
   red_light_green_light_timer.connect("timeout", red_light_green_light)
   add_child(red_light_green_light_timer)
-  red_light_green_light_timer.start(6)
+  red_light_green_light_timer.start()
   
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-  pass
+ print(DisplayServer.window_get_size())
 
 func red_light_green_light() -> void:
   is_green_light = not is_green_light
   if is_green_light:
+    $TrafficLights/GreenLight.material.set_shader_parameter("current_color", Color("00cf4e")) # 00cf4e 004c03
+    $TrafficLights/RedLight.material.set_shader_parameter("current_color", Color("700026")) # d1004e 700026
     penguin_head.rotate(Vector3(0, 1, 0), PI)
   elif not is_green_light:
+    $TrafficLights/GreenLight.material.set_shader_parameter("current_color", Color("004c03"))
+    $TrafficLights/RedLight.material.set_shader_parameter("current_color", Color("d1004e"))
     penguin_head.rotate(Vector3(0, 1, 0), -PI)
   red_light_green_light_timer.start()
   
+func handle_minigame() -> void:
+  $InfoBeforeMinigame.visible = true
+  var timer = Timer.new()
+  timer.set_one_shot(true)
+  timer.process_mode = Node.PROCESS_MODE_ALWAYS
+  timer.connect("timeout", launch_minigame)
+  add_child(timer)
+  timer.start(3)
+  tree_is_paused = true
+  get_tree().paused = true
 
 func launch_minigame() -> void:
+  tree_is_paused = false
+  get_tree().paused = false
+  $InfoBeforeMinigame.visible = false
   var minigame_event = randi() % 3
   var minigame
   match minigame_event:
@@ -72,6 +97,14 @@ func apply_minigame_result() -> void:
     player.position = player_position
     
 func reinitialize_level() -> void:
-  red_light_green_light_timer.start()
+  red_light_green_light()
   player.is_in_movement = false
   apply_minigame_result()
+
+
+func _set_traffic_lights_position() -> void:
+  var curr_window_size = DisplayServer.window_get_size()
+  print(curr_window_size.x * 0.67)
+  $TrafficLights.position = Vector2(curr_window_size.x * 0.67, curr_window_size.y * 0.31)
+  
+  $InfoBeforeMinigame.position = Vector2(curr_window_size.x * 0.4, curr_window_size.y * 0.15)

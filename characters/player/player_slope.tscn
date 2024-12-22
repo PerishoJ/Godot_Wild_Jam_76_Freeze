@@ -13,7 +13,7 @@ margin = 1.0
 radius = 0.22
 height = 1.2
 
-[node name="Player" type="RigidBody3D"]
+[node name="Player2" type="RigidBody3D"]
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_3rohn")
 constant_force = Vector3(0, -40, 0)

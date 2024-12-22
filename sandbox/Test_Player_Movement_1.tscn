@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3t2yti6bi0w2"]
+[gd_scene load_steps=12 format=3 uid="uid://d3t2yti6bi0w2"]
 
 [ext_resource type="Script" path="res://sandbox/main_scene.gd" id="1_n86el"]
 [ext_resource type="PackedScene" uid="uid://bbrn2yoty57q4" path="res://characters/player/player.tscn" id="2_n6pal"]
@@ -6,6 +6,82 @@
 [ext_resource type="PackedScene" uid="uid://bsfwddsp1farj" path="res://World.tscn" id="5_psuhd"]
 [ext_resource type="PackedScene" uid="uid://43vyj1jsf08k" path="res://sandbox/penguin_head.tscn" id="5_u7tlm"]
 [ext_resource type="AudioStream" uid="uid://matndd0bqy2w" path="res://assets/music/ChristmasSongs-JingleBellsRock.ogg" id="6_wgw3i"]
+
+[sub_resource type="Shader" id="Shader_xothr"]
+code = "shader_type canvas_item;
+
+uniform vec4 current_color: source_color;
+uniform sampler2D noise_texture;
+uniform float value_to_step: hint_range(0.0, 1.0, 0.01) = 1.;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	vec2 uv = UV -0.5;
+	float d = length(uv);
+	float r = value_to_step;
+	float shadow_length = step(0.001, r);
+	float c = smoothstep(r, r+shadow_length*0.03, d);
+
+
+	COLOR.rgb = current_color.rgb;
+  vec3 a = vec3(0,0.299,0.012);
+	COLOR.a = 1.-c;
+
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ptpxv"]
+shader = SubResource("Shader_xothr")
+shader_parameter/current_color = Color(0, 0.811765, 0.305882, 1)
+shader_parameter/value_to_step = 0.44
+
+[sub_resource type="Shader" id="Shader_jfhsw"]
+code = "shader_type canvas_item;
+
+uniform vec4 current_color: source_color;
+uniform sampler2D noise_texture;
+uniform float value_to_step: hint_range(0.0, 1.0, 0.01) = 1.;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	vec2 uv = UV -0.5;
+	float d = length(uv);
+	float r = value_to_step;
+	float shadow_length = step(0.001, r);
+	float c = smoothstep(r, r+shadow_length*0.03, d);
+
+
+	COLOR.rgb = current_color.rgb;
+  vec3 a = vec3(0.439,0,0.149);
+	COLOR.a = 1.-c;
+
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7u3j8"]
+shader = SubResource("Shader_jfhsw")
+shader_parameter/current_color = Color(0.439216, 0, 0.14902, 1)
+shader_parameter/value_to_step = 0.44
+
+[sub_resource type="LabelSettings" id="LabelSettings_ho014"]
+font_size = 30
+outline_size = 3
 
 [node name="RootNode" type="Node3D"]
 
@@ -25,6 +101,46 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.083
 
 [node name="World" parent="Test_Scene" instance=ExtResource("5_psuhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5218, -25.6589)
+
+[node name="TrafficLights" type="Control" parent="Test_Scene"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1300.0
+offset_top = 300.0
+offset_right = 1304.0
+offset_bottom = 340.0
+
+[node name="GreenLight" type="ColorRect" parent="Test_Scene/TrafficLights"]
+material = SubResource("ShaderMaterial_ptpxv")
+layout_mode = 2
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 84.0
+color = Color(0, 0.81, 0.305, 1)
+
+[node name="RedLight" type="ColorRect" parent="Test_Scene/TrafficLights"]
+material = SubResource("ShaderMaterial_7u3j8")
+layout_mode = 2
+offset_top = 100.0
+offset_right = 80.0
+offset_bottom = 180.0
+color = Color(0.819, 0, 0.149, 1)
+
+[node name="InfoBeforeMinigame" type="Control" parent="Test_Scene"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Test_Scene/InfoBeforeMinigame"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "You were seen walking!
+
+Minigame will start soon"
+label_settings = SubResource("LabelSettings_ho014")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_wgw3i")
