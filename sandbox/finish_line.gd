@@ -12,5 +12,8 @@ func _process(delta):
 
 func _on_Area3D_body_entered(p_body) -> void:
   if p_body.name == "Player":
+    var timer = Timer.new()
+    timer.connect("timeout", get_tree().change_scene_to_file.bind("res://sandbox/Win_screen.tscn"))
+    add_child(timer)
+    timer.start(0.8)
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-    get_tree().change_scene_to_file("res://Winner.tscn")

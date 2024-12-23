@@ -35,5 +35,6 @@ func _process(delta):
 
 
 func _handle_scene_change() -> void:
+  queue_free()
   Globals.scene_holder.add_child(Globals.main_world_level)
   Globals.main_world_level.reinitialize_level()

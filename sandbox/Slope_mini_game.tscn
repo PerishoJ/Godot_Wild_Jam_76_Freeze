@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://bsa3ijamqyhfo"]
+[gd_scene load_steps=35 format=3 uid="uid://bsa3ijamqyhfo"]
 
 [ext_resource type="Script" path="res://sandbox/slope_mini_game.gd" id="1_f5b5f"]
 [ext_resource type="PackedScene" uid="uid://dan1at6ysfimr" path="res://sandbox/gridmap.tscn" id="1_hyw6t"]
 [ext_resource type="PackedScene" uid="uid://beeb83g8b8k36" path="res://characters/player/player_slope.tscn" id="2_ayhp7"]
+[ext_resource type="PackedScene" uid="uid://by67he37txe88" path="res://assets/Environment/Models/FBX format/tree-snow-a.fbx" id="3_8q5nu"]
 [ext_resource type="PackedScene" uid="uid://cjevllo1r4n1m" path="res://sandbox/finish_line.tscn" id="4_erjwi"]
 [ext_resource type="Script" path="res://sandbox/finish_line_for_slope_minigame.gd" id="5_rqxed"]
 
@@ -189,7 +190,7 @@ mesh = SubResource("CylinderMesh_3i32g")
 shape = SubResource("ConvexPolygonShape3D_xmgpn")
 
 [node name="StaticBody3D10" type="StaticBody3D" parent="Slope"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5978, 1.02161, 19.4318)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5978, -0.476364, 19.0304)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D10"]
@@ -199,12 +200,16 @@ mesh = SubResource("CylinderMesh_e4oj4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D10"]
 shape = SubResource("ConvexPolygonShape3D_6svas")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Slope/StaticBody3D10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.142479, 321.732)
-mesh = SubResource("CylinderMesh_e4oj4")
+[node name="StaticBody3D31" type="StaticBody3D" parent="Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -33.5978, -0.618866, 340.762)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Slope/StaticBody3D10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14315, 321.735)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Slope/StaticBody3D31"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 1.52588e-05, 0)
+mesh = SubResource("CylinderMesh_e4oj4")
+skeleton = NodePath("../../StaticBody3D10")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Slope/StaticBody3D31"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, -0.000640869, 0.00299072)
 shape = SubResource("ConvexPolygonShape3D_6svas")
 
 [node name="StaticBody3D11" type="StaticBody3D" parent="Slope"]
@@ -374,7 +379,7 @@ mesh = SubResource("CylinderMesh_3i32g")
 shape = SubResource("ConvexPolygonShape3D_xmgpn")
 
 [node name="StaticBody3D20" type="StaticBody3D" parent="Slope"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -33.5978, 4.74956, 251.9)
+transform = Transform3D(1, 0, 0, 0, 0.999999, -1.49012e-08, 0, 1.49012e-08, 0.999999, -33.5978, 1.03748, 250.905)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D20"]
@@ -395,7 +400,7 @@ mesh = SubResource("CylinderMesh_e4oj4")
 shape = SubResource("ConvexPolygonShape3D_id18r")
 
 [node name="StaticBody3D22" type="StaticBody3D" parent="Slope"]
-transform = Transform3D(-4.37114e-08, 0, -0.999999, 0, 0.999999, 1.77636e-15, 1, 1.49012e-08, -4.37113e-08, 4.60583, 4.6564, 471.824)
+transform = Transform3D(-4.37114e-08, 0, -0.999999, 0, 0.999999, 6.21725e-15, 1, 0, -4.37113e-08, 4.60583, 0.873871, 430.969)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D22"]
@@ -415,11 +420,10 @@ mesh = SubResource("PrismMesh_1n66v")
 shape = SubResource("ConvexPolygonShape3D_4mlov")
 
 [node name="StaticBody3D24" type="StaticBody3D" parent="Slope"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 1.49012e-08, 0.999999, -11.8784, 1.14995, 429.752)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999998, -1.49012e-08, 0, 1.49012e-08, 0.999999, -11.8784, 0.59317, 429.603)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D24"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_2rfbs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D24"]
@@ -427,7 +431,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_8wyi0")
 
 [node name="StaticBody3D25" type="StaticBody3D" parent="Slope"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999997, -1.49012e-08, 0, 1.49012e-08, 0.999998, -15.7299, 3.30464, 254.134)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999997, -1.49012e-08, 0, 1.49012e-08, 0.999998, -15.7299, 2.4883, 253.915)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D25"]
@@ -461,7 +465,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5753, -0.958008)
 mesh = SubResource("SphereMesh_tyloc")
 
 [node name="StaticBody3D28" type="StaticBody3D" parent="Slope"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3564, 3.91855, 232.151)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.3564, 1.47951, 231.497)
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D28"]
@@ -489,6 +493,246 @@ shape = SubResource("SphereShape3D_3wwnq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Slope/StaticBody3D30"]
 mesh = SubResource("SphereMesh_tyloc")
+
+[node name="tree-snow-a" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, -1.19209e-07, 0, 1.19209e-07, 2, 4.96044, -0.0685425, 336.885)
+
+[node name="tree-snow-a2" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, -1.19209e-07, 0, 1.19209e-07, 2, 23.0333, -0.0749969, 325.588)
+
+[node name="tree-snow-a3" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, -1.49012e-07, 0, 1.49012e-07, 2, -2.03403, -0.192902, 290.562)
+
+[node name="tree-snow-a4" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, -1.19209e-07, 0, 1.19209e-07, 2, -22.134, -0.137299, 185.019)
+
+[node name="tree-snow-a5" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, 2.6203, 0.0122375, 130.475)
+
+[node name="tree-snow-a6" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, 2.98023e-08, 0, -2.98023e-08, 2, 6.76482, -0.183594, 131.206)
+
+[node name="tree-snow-a7" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.23866, -0.203827, 129.877)
+
+[node name="tree-snow-a8" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, 0.385672, -0.105194, 128.547)
+
+[node name="tree-snow-a9" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, 0.385672, -0.0911255, 134.828)
+
+[node name="tree-snow-a10" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.160698, -104.103)
+
+[node name="tree-snow-a11" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.0480118, -105.827)
+
+[node name="tree-snow-a12" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.234642, -108.814)
+
+[node name="tree-snow-a13" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.115128, -113.269)
+
+[node name="tree-snow-a22" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.167023, -91.7823)
+
+[node name="tree-snow-a23" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.283279, -93.5679)
+
+[node name="tree-snow-a24" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.330338, -96.5175)
+
+[node name="tree-snow-a25" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.350388, -101.01)
+
+[node name="tree-snow-a26" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 41.4296, -0.189636, -95.4922)
+
+[node name="tree-snow-a27" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 41.4296, -0.241295, -97.2606)
+
+[node name="tree-snow-a28" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 41.4296, -0.194366, -100.185)
+
+[node name="tree-snow-a29" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 41.4296, -0.24015, -104.685)
+
+[node name="tree-snow-a30" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 40.3006, -0.554779, -81.784)
+
+[node name="tree-snow-a31" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 40.3006, -0.319862, -83.4757)
+
+[node name="tree-snow-a32" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 40.3006, -0.36834, -86.4255)
+
+[node name="tree-snow-a33" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 40.3006, -0.38842, -90.9183)
+
+[node name="tree-snow-a14" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 38.4832, -0.32074, -117.199)
+
+[node name="tree-snow-a15" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 43.2489, -0.322197, -117.199)
+
+[node name="tree-snow-a16" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 43.2489, -0.267479, -113.673)
+
+[node name="tree-snow-a17" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 43.2489, -0.132301, -109.293)
+
+[node name="tree-snow-a18" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 43.2489, -0.470451, -124.335)
+
+[node name="tree-snow-a19" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 39.8555, -0.468994, -124.334)
+
+[node name="tree-snow-a20" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 39.8555, -0.254868, -120.772)
+
+[node name="tree-snow-a21" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 40.7452, -0.225731, -115.786)
+
+[node name="tree-snow-a34" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.220055, -104.119)
+
+[node name="tree-snow-a35" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.336327, -105.904)
+
+[node name="tree-snow-a36" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.383377, -108.854)
+
+[node name="tree-snow-a37" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.403442, -113.347)
+
+[node name="tree-snow-a38" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.45533, -91.8595)
+
+[node name="tree-snow-a39" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.34729, -93.5851)
+
+[node name="tree-snow-a40" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.618652, -96.5948)
+
+[node name="tree-snow-a41" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.638695, -101.087)
+
+[node name="tree-snow-a42" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -42.3261, -0.130447, -95.4763)
+
+[node name="tree-snow-a43" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -42.3261, -0.104477, -97.2239)
+
+[node name="tree-snow-a44" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -42.3261, -0.266014, -100.204)
+
+[node name="tree-snow-a45" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -42.3261, -0.203529, -104.675)
+
+[node name="tree-snow-a46" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -43.4551, -0.493347, -81.7675)
+
+[node name="tree-snow-a47" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -43.4551, -0.60965, -83.5533)
+
+[node name="tree-snow-a48" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -43.4551, -0.656654, -86.5027)
+
+[node name="tree-snow-a49" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -43.4551, -0.676735, -90.9955)
+
+[node name="tree-snow-a50" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -45.2725, -0.610504, -117.277)
+
+[node name="tree-snow-a51" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -40.5069, -0.610504, -117.277)
+
+[node name="tree-snow-a52" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -40.5069, -0.555794, -113.75)
+
+[node name="tree-snow-a53" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -40.5069, -0.308403, -109.34)
+
+[node name="tree-snow-a54" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -40.5069, -0.758766, -124.412)
+
+[node name="tree-snow-a55" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -43.9002, -0.758766, -124.412)
+
+[node name="tree-snow-a56" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -43.9002, -0.544632, -120.85)
+
+[node name="tree-snow-a57" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -43.0105, -0.514038, -115.863)
+
+[node name="tree-snow-a58" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -25.8245, -0.233742, -19.0005)
+
+[node name="tree-snow-a59" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -21.0589, -0.233742, -19.0005)
+
+[node name="tree-snow-a60" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -21.0589, -0.179085, -15.4738)
+
+[node name="tree-snow-a61" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -21.0589, -0.382065, -26.136)
+
+[node name="tree-snow-a62" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -24.4522, -0.382065, -26.136)
+
+[node name="tree-snow-a63" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -24.4522, -0.167885, -22.5735)
+
+[node name="tree-snow-a64" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -23.5625, -0.137268, -17.5874)
+
+[node name="tree-snow-a65" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -4.98129, -0.400124, 22.7372)
+
+[node name="tree-snow-a66" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -0.215654, -0.400124, 22.7372)
+
+[node name="tree-snow-a67" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -0.215654, -0.345474, 26.2638)
+
+[node name="tree-snow-a68" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -0.215654, -0.54847, 15.6017)
+
+[node name="tree-snow-a69" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -3.60898, -0.54847, 15.6017)
+
+[node name="tree-snow-a70" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -3.60898, -0.334251, 19.1642)
+
+[node name="tree-snow-a71" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, -2.71928, -0.303627, 24.1502)
+
+[node name="tree-snow-a72" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 18.7096, -0.165848, 196.171)
+
+[node name="tree-snow-a79" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 34.7388, -0.165863, 196.171)
+
+[node name="tree-snow-a80" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 30.3003, -0.116806, 190.257)
+
+[node name="tree-snow-a73" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 23.4752, -0.165848, 196.171)
+
+[node name="tree-snow-a74" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 23.4752, -0.111282, 199.698)
+
+[node name="tree-snow-a75" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 23.4752, -0.314224, 189.035)
+
+[node name="tree-snow-a76" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 20.0819, -0.314224, 189.035)
+
+[node name="tree-snow-a77" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 20.0819, -0.0999908, 192.598)
+
+[node name="tree-snow-a78" parent="Slope" instance=ExtResource("3_8q5nu")]
+transform = Transform3D(2, 0, 0, 0, 1.99999, -2.98023e-08, 0, 2.98023e-08, 1.99999, 20.9716, -0.0693512, 197.584)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.87979, 4.76684)

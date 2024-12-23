@@ -52,7 +52,7 @@ func handle_minigame() -> void:
   timer.process_mode = Node.PROCESS_MODE_ALWAYS
   timer.connect("timeout", launch_minigame)
   add_child(timer)
-  timer.start(3)
+  timer.start(1.2)
   tree_is_paused = true
   get_tree().paused = true
 

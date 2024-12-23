@@ -31,6 +31,7 @@ func succeeded_race() -> void:
   timer.connect("timeout", _handle_scene_change)
   
 func _handle_scene_change() -> void:
-  Globals.scene_holder.remove_child(self)
+  #Globals.scene_holder.remove_child(self)
+  queue_free()
   Globals.scene_holder.add_child(Globals.main_world_level)
   Globals.main_world_level.reinitialize_level()
